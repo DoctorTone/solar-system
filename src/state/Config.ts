@@ -5,4 +5,8 @@ const SCENE = {
   ambientIntensity: 1,
 };
 
-export { SCENE };
+const PLANETS = {
+  MERCURY: new Vector3(5, 0, 0),
+};
+
+export { SCENE, PLANETS };

@@ -1,7 +1,6 @@
-import React from "react";
 import { Sphere } from "@react-three/drei";
 
-const Sun = () => {
+const Mercury = () => {
   return (
     <Sphere>
       <meshStandardMaterial color={"yellow"} />
@@ -9,4 +8,4 @@ const Sun = () => {
   );
 };
 
-export default Sun;
+export default Mercury;
