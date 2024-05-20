@@ -15,6 +15,10 @@ const PLANETS = {
     distance: 15,
     radius: 1,
   },
+  VENUS: {
+    distance: 30,
+    radius: 1,
+  },
 };
 
 export { SCENE, SUN, PLANETS };

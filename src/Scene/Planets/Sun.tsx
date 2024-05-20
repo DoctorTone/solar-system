@@ -1,11 +1,13 @@
 import React from "react";
-import { Sphere } from "@react-three/drei";
+import { Sphere, useTexture } from "@react-three/drei";
 import { SUN } from "../../state/Config";
 
 const Sun = () => {
+  const sunSurface = useTexture("./textures/sun.jpg");
+
   return (
     <Sphere scale={SUN.radius}>
-      <meshStandardMaterial color={"yellow"} />
+      <meshStandardMaterial color={"yellow"} map={sunSurface} />
     </Sphere>
   );
 };
