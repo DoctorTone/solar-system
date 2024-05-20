@@ -1,8 +1,9 @@
 import { Sphere } from "@react-three/drei";
+import { PLANETS } from "../../state/Config";
 
 const Mercury = () => {
   return (
-    <Sphere>
+    <Sphere position-x={PLANETS.MERCURY.distance}>
       <meshStandardMaterial color={"yellow"} />
     </Sphere>
   );
