@@ -1,11 +1,14 @@
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Box } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
+import Lights from "./Scene/Lights";
+import System from "./Scene/System";
 
 function App() {
   return (
     <>
       <Canvas>
-        <Box />
+        <Lights />
+        <System />
         <OrbitControls
           makeDefault
           enablePan={true}

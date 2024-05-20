@@ -1,8 +1,8 @@
-import * as THREE from "three";
+import { Vector3 } from "three";
 
 const SCENE = {
-  lightPosition: new THREE.Vector3(10, 10, 10),
-  ambientIntensity: 0.5,
+  lightPosition: new Vector3(1, 1, 3),
+  ambientIntensity: 1,
 };
 
 export { SCENE };

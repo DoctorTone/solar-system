@@ -1,4 +1,3 @@
-import React from "react";
 import { SCENE } from "../state/Config";
 
 const Lights = () => {
