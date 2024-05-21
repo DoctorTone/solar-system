@@ -3,6 +3,11 @@ import Sun from "./Planets/Sun";
 import Mercury from "./Planets/Mercury";
 import Venus from "./Planets/Venus";
 import Earth from "./Planets/Earth";
+import Mars from "./Planets/Mars";
+import Jupiter from "./Planets/Jupiter";
+import Saturn from "./Planets/Saturn";
+import Uranus from "./Planets/Uranus";
+import Neptune from "./Planets/Neptune";
 import { Stars } from "@react-three/drei";
 
 const System = () => {
@@ -13,6 +18,11 @@ const System = () => {
       <Mercury />
       <Venus />
       <Earth />
+      <Mars />
+      <Jupiter />
+      <Saturn />
+      <Uranus />
+      <Neptune />
     </>
   );
 };

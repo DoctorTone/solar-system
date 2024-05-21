@@ -30,6 +30,22 @@ const PLANETS = {
     distance: 60,
     radius: 1,
   },
+  JUPITER: {
+    distance: 75,
+    radius: 1,
+  },
+  SATURN: {
+    distance: 90,
+    radius: 1,
+  },
+  URANUS: {
+    distance: 105,
+    radius: 1,
+  },
+  NEPTUNE: {
+    distance: 120,
+    radius: 1,
+  },
 };
 
 export { SCENE, SUN, PLANETS };
