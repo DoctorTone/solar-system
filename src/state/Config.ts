@@ -2,12 +2,15 @@ import { Vector3 } from "three";
 
 const SCENE = {
   cameraPosition: new Vector3(0, 0, 30),
-  lightPosition: new Vector3(1, 1, 3),
+  lightPosition: new Vector3(0, 0, 0),
   ambientIntensity: 1,
 };
 
 const SUN = {
   radius: 10,
+  colour: 0xffffff,
+  intensity: 1000,
+  distance: 0,
 };
 
 const PLANETS = {
@@ -17,6 +20,14 @@ const PLANETS = {
   },
   VENUS: {
     distance: 30,
+    radius: 1,
+  },
+  EARTH: {
+    distance: 45,
+    radius: 1,
+  },
+  MARS: {
+    distance: 60,
     radius: 1,
   },
 };
