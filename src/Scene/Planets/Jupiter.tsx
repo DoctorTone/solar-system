@@ -5,7 +5,10 @@ const Jupiter = () => {
   const surface = useTexture("./textures/jupiter.jpg");
 
   return (
-    <Sphere position-x={PLANETS.JUPITER.distance}>
+    <Sphere
+      position-x={PLANETS.JUPITER.distance}
+      scale={PLANETS.JUPITER.radius}
+    >
       <meshStandardMaterial map={surface} />
     </Sphere>
   );

@@ -32,7 +32,7 @@ const PLANETS = {
   },
   JUPITER: {
     distance: 75,
-    radius: 1,
+    radius: 10.973,
   },
   SATURN: {
     distance: 90,
