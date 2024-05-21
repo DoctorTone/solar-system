@@ -18,11 +18,11 @@ const System = () => {
       <Mercury />
       <Venus />
       <Earth />
-      <Mars />
+      {/* <Mars />
       <Jupiter />
       <Saturn />
       <Uranus />
-      <Neptune />
+      <Neptune /> */}
     </>
   );
 };

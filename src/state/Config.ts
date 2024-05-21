@@ -7,7 +7,7 @@ const SCENE = {
 };
 
 const SUN = {
-  radius: 10,
+  radius: 70,
   colour: 0xffffff,
   intensity: 1000,
   distance: 0,
@@ -15,7 +15,7 @@ const SUN = {
 
 const PLANETS = {
   MERCURY: {
-    distance: 15,
+    distance: 115,
     radius: 1,
   },
   VENUS: {
@@ -23,8 +23,8 @@ const PLANETS = {
     radius: 1,
   },
   EARTH: {
-    distance: 45,
-    radius: 1,
+    distance: 100,
+    radius: 0.64,
   },
   MARS: {
     distance: 60,
