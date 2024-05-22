@@ -3,6 +3,7 @@ import { OrbitControls } from "@react-three/drei";
 import { SCENE } from "./state/Config";
 import Lights from "./Scene/Lights";
 import System from "./Scene/System";
+import SystemUI from "./UI/SystemUI";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           enableDamping={true}
         />
       </Canvas>
+      <SystemUI />
     </>
   );
 }

@@ -3,9 +3,11 @@ import { Sphere, useTexture, Text, Billboard } from "@react-three/drei";
 import { PLANETS } from "../../state/Config";
 import Path from "../Path";
 import { SCENE } from "../../state/Config";
+import useStore from "../../state/store";
 
 const Venus = () => {
   const atmosphere = useTexture("./textures/venus_atmosphere.jpg");
+  const showPath = useStore((state) => state.showPaths);
 
   // Calculate planet position
   const distance = new Vector3(PLANETS.VENUS.distance, 0, 0);
@@ -33,7 +35,7 @@ const Venus = () => {
           Venus
         </Text>
       </Billboard>
-      <Path startDistance={PLANETS.VENUS.distance} />
+      {showPath && <Path startDistance={PLANETS.VENUS.distance} />}
     </>
   );
 };

@@ -3,10 +3,12 @@ import { Sphere, useTexture, Ring, Text, Billboard } from "@react-three/drei";
 import { PLANETS } from "../../state/Config";
 import Path from "../Path";
 import { SCENE } from "../../state/Config";
+import useStore from "../../state/store";
 
 const Saturn = () => {
   const surface = useTexture("./textures/saturn.jpg");
   const rings = useTexture("./textures/saturn_ring.png");
+  const showPath = useStore((state) => state.showPaths);
 
   // Calculate planet position
   const distance = new Vector3(PLANETS.SATURN.distance, 0, 0);
@@ -41,7 +43,7 @@ const Saturn = () => {
       >
         <meshStandardMaterial side={DoubleSide} map={rings} />
       </Ring>
-      <Path startDistance={PLANETS.SATURN.distance} />
+      {showPath && <Path startDistance={PLANETS.SATURN.distance} />}
     </>
   );
 };

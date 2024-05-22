@@ -3,9 +3,11 @@ import { PLANETS } from "../../state/Config";
 import Path from "../Path";
 import { Vector3 } from "three";
 import { SCENE } from "../../state/Config";
+import useStore from "../../state/store";
 
 const Earth = () => {
   const surface = useTexture("./textures/earth_daymap.jpg");
+  const showPath = useStore((state) => state.showPaths);
 
   // Calculate planet position
   const distance = new Vector3(PLANETS.EARTH.distance, 0, 0);
@@ -33,7 +35,7 @@ const Earth = () => {
           Earth
         </Text>
       </Billboard>
-      <Path startDistance={PLANETS.EARTH.distance} />
+      {showPath && <Path startDistance={PLANETS.EARTH.distance} />}
     </>
   );
 };

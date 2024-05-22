@@ -3,9 +3,11 @@ import { PLANETS } from "../../state/Config";
 import Path from "../Path";
 import { Vector3 } from "three";
 import { SCENE } from "../../state/Config";
+import useStore from "../../state/store";
 
 const Neptune = () => {
   const surface = useTexture("./textures/neptune.jpg");
+  const showPath = useStore((state) => state.showPaths);
 
   // Calculate planet position
   const distance = new Vector3(PLANETS.NEPTUNE.distance, 0, 0);
@@ -33,7 +35,7 @@ const Neptune = () => {
           Neptune
         </Text>
       </Billboard>
-      <Path startDistance={PLANETS.NEPTUNE.distance} />
+      {showPath && <Path startDistance={PLANETS.NEPTUNE.distance} />}
     </>
   );
 };
