@@ -20,7 +20,11 @@ const Earth = () => {
 
   return (
     <>
-      <Sphere position={position} scale={PLANETS.EARTH.radius}>
+      <Sphere
+        position={position}
+        scale={PLANETS.EARTH.radius}
+        rotation-z={PLANETS.EARTH.tilt}
+      >
         <meshStandardMaterial map={surface} />
       </Sphere>
       <Billboard position={textPosition}>

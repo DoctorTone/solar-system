@@ -20,7 +20,11 @@ const Venus = () => {
 
   return (
     <>
-      <Sphere position={position} scale={PLANETS.VENUS.radius}>
+      <Sphere
+        position={position}
+        scale={PLANETS.VENUS.radius}
+        rotation-z={PLANETS.VENUS.tilt}
+      >
         <meshStandardMaterial map={atmosphere} />
       </Sphere>
       <Billboard position={textPosition}>

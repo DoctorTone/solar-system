@@ -20,7 +20,11 @@ const Jupiter = () => {
 
   return (
     <>
-      <Sphere position={position} scale={PLANETS.JUPITER.radius}>
+      <Sphere
+        position={position}
+        scale={PLANETS.JUPITER.radius}
+        rotation-z={PLANETS.JUPITER.tilt}
+      >
         <meshStandardMaterial map={surface} />
       </Sphere>
       <Billboard position={textPosition}>

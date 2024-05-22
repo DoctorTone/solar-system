@@ -20,7 +20,11 @@ const Neptune = () => {
 
   return (
     <>
-      <Sphere position={position} scale={PLANETS.NEPTUNE.radius}>
+      <Sphere
+        position={position}
+        scale={PLANETS.NEPTUNE.radius}
+        rotation-z={PLANETS.NEPTUNE.tilt}
+      >
         <meshStandardMaterial map={surface} />
       </Sphere>
       <Billboard position={textPosition}>

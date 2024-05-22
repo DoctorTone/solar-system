@@ -20,7 +20,11 @@ const Uranus = () => {
 
   return (
     <>
-      <Sphere position={position} scale={PLANETS.URANUS.radius}>
+      <Sphere
+        position={position}
+        scale={PLANETS.URANUS.radius}
+        rotation-z={PLANETS.URANUS.tilt}
+      >
         <meshStandardMaterial map={surface} />
       </Sphere>
       <Billboard position={textPosition}>

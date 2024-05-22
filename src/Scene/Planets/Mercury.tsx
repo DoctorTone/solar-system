@@ -20,7 +20,11 @@ const Mercury = () => {
 
   return (
     <>
-      <Sphere position={position} scale={PLANETS.MERCURY.radius}>
+      <Sphere
+        position={position}
+        scale={PLANETS.MERCURY.radius}
+        rotation-z={PLANETS.MERCURY.tilt}
+      >
         <meshStandardMaterial map={surface} />
       </Sphere>
       <Billboard position={textPosition}>

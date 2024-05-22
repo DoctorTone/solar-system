@@ -20,7 +20,11 @@ const Mars = () => {
 
   return (
     <>
-      <Sphere position={position} scale={PLANETS.MARS.radius}>
+      <Sphere
+        position={position}
+        scale={PLANETS.MARS.radius}
+        rotation-z={PLANETS.MARS.tilt}
+      >
         <meshStandardMaterial map={surface} />
       </Sphere>
       <Billboard position={textPosition}>
