@@ -1,13 +1,16 @@
+import { useRef } from "react";
 import { Sphere, useTexture, Text, Billboard } from "@react-three/drei";
 import { PLANETS } from "../../state/Config";
+import { useFrame } from "@react-three/fiber";
 import Path from "../Path";
-import { Vector3 } from "three";
+import { Vector3, Mesh } from "three";
 import { SCENE } from "../../state/Config";
 import useStore from "../../state/store";
 
 const Mercury = () => {
   const surface = useTexture("./textures/mercury.jpg");
   const showPath = useStore((state) => state.showPaths);
+  const planetRef = useRef<Mesh>(null);
 
   // Calculate planet position
   const distance = new Vector3(PLANETS.MERCURY.distance, 0, 0);
@@ -18,9 +21,14 @@ const Mercury = () => {
   const textPosition = new Vector3().copy(position);
   textPosition.y += 10;
 
+  useFrame((_, delta) => {
+    planetRef.current!.rotation.y += delta * PLANETS.MERCURY.rotationSpeed;
+  });
+
   return (
     <>
       <Sphere
+        ref={planetRef}
         position={position}
         scale={PLANETS.MERCURY.radius}
         rotation-z={PLANETS.MERCURY.tilt}

@@ -1,13 +1,16 @@
+import { useRef } from "react";
 import { Sphere, useTexture, Text, Billboard } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 import { PLANETS } from "../../state/Config";
 import Path from "../Path";
-import { Vector3 } from "three";
+import { Mesh, Vector3 } from "three";
 import { SCENE } from "../../state/Config";
 import useStore from "../../state/store";
 
 const Jupiter = () => {
   const surface = useTexture("./textures/jupiter.jpg");
   const showPath = useStore((state) => state.showPaths);
+  const planetRef = useRef<Mesh>(null);
 
   // Calculate planet position
   const distance = new Vector3(PLANETS.JUPITER.distance, 0, 0);
@@ -18,9 +21,14 @@ const Jupiter = () => {
   const textPosition = new Vector3().copy(position);
   textPosition.y += 40;
 
+  useFrame((_, delta) => {
+    planetRef.current!.rotation.y += delta * PLANETS.JUPITER.rotationSpeed;
+  });
+
   return (
     <>
       <Sphere
+        ref={planetRef}
         position={position}
         scale={PLANETS.JUPITER.radius}
         rotation-z={PLANETS.JUPITER.tilt}
