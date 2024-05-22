@@ -1,4 +1,4 @@
-import { Sphere, useTexture, Text } from "@react-three/drei";
+import { Sphere, useTexture, Text, Billboard } from "@react-three/drei";
 import { PLANETS } from "../../state/Config";
 import Path from "../Path";
 import { Vector3 } from "three";
@@ -21,17 +21,18 @@ const Mars = () => {
       <Sphere position={position} scale={PLANETS.MARS.radius}>
         <meshStandardMaterial map={surface} />
       </Sphere>
-      <Text
-        color="white"
-        fontSize={SCENE.FONT_SIZE}
-        anchorX="center"
-        anchorY="middle"
-        outlineWidth={SCENE.FONT_OUTLINE_WIDTH}
-        outlineColor="black"
-        position={textPosition}
-      >
-        Mars
-      </Text>
+      <Billboard position={textPosition}>
+        <Text
+          color="white"
+          fontSize={SCENE.FONT_SIZE}
+          anchorX="center"
+          anchorY="middle"
+          outlineWidth={SCENE.FONT_OUTLINE_WIDTH}
+          outlineColor="black"
+        >
+          Mars
+        </Text>
+      </Billboard>
       <Path startDistance={PLANETS.MARS.distance} />
     </>
   );
