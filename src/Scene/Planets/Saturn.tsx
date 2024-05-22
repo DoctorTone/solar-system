@@ -1,6 +1,7 @@
 import { DoubleSide } from "three";
 import { Sphere, useTexture, Ring } from "@react-three/drei";
 import { PLANETS } from "../../state/Config";
+import Path from "../Path"
 
 const Saturn = () => {
   const surface = useTexture("./textures/saturn.jpg");
@@ -21,6 +22,7 @@ const Saturn = () => {
       >
         <meshStandardMaterial side={DoubleSide} map={rings} />
       </Ring>
+      <Path startDistance={PLANETS.SATURN.distance}/>
     </>
   );
 };
