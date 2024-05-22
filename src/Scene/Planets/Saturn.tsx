@@ -21,9 +21,17 @@ const Saturn = () => {
 
   return (
     <>
-      <Sphere position={position} scale={PLANETS.SATURN.radius}>
-        <meshStandardMaterial map={surface} />
-      </Sphere>
+      <group position={position} rotation-z={PLANETS.SATURN.tilt}>
+        <Sphere scale={PLANETS.SATURN.radius}>
+          <meshStandardMaterial map={surface} />
+        </Sphere>
+        <Ring
+          args={[PLANETS.SATURN.radius + 2, PLANETS.SATURN.radius + 10, 32]}
+          rotation-x={Math.PI / 2}
+        >
+          <meshStandardMaterial side={DoubleSide} map={rings} />
+        </Ring>
+      </group>
       <Billboard position={textPosition}>
         <Text
           color="white"
@@ -36,13 +44,6 @@ const Saturn = () => {
           Saturn
         </Text>
       </Billboard>
-      <Ring
-        args={[PLANETS.SATURN.radius + 2, PLANETS.SATURN.radius + 10, 32]}
-        position={position}
-        rotation-x={Math.PI / 2}
-      >
-        <meshStandardMaterial side={DoubleSide} map={rings} />
-      </Ring>
       {showPath && <Path startDistance={PLANETS.SATURN.distance} />}
     </>
   );

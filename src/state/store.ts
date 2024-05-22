@@ -6,7 +6,7 @@ interface SolarState {
 }
 
 const useStore = create<SolarState>((set) => ({
-  showPaths: false,
+  showPaths: true,
   toggleShowPaths: (status: boolean) => set({ showPaths: status }),
 }));
 
