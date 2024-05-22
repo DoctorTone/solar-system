@@ -9,6 +9,7 @@ const SCENE = {
   ambientIntensity: 1,
   FONT_SIZE: 15,
   FONT_OUTLINE_WIDTH: 1.5,
+  RING_SEGMENTS: 128,
 };
 
 const PLANET_SCALE = 2;
