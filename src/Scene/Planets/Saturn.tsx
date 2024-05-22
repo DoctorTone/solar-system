@@ -5,7 +5,7 @@ const Saturn = () => {
   const surface = useTexture("./textures/saturn.jpg");
 
   return (
-    <Sphere position-x={PLANETS.SATURN.distance}>
+    <Sphere position-x={PLANETS.SATURN.distance} scale={PLANETS.SATURN.radius}>
       <meshStandardMaterial map={surface} />
     </Sphere>
   );

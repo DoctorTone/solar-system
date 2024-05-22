@@ -13,16 +13,16 @@ import { Stars } from "@react-three/drei";
 const System = () => {
   return (
     <>
-      <Stars />
+      {/* <Stars /> */}
       <Sun />
       <Mercury />
       <Venus />
       <Earth />
-      {/* <Mars />
+      <Mars />
       <Jupiter />
       <Saturn />
       <Uranus />
-      <Neptune /> */}
+      <Neptune />
     </>
   );
 };

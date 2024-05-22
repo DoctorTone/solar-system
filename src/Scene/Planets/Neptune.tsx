@@ -5,7 +5,10 @@ const Neptune = () => {
   const surface = useTexture("./textures/neptune.jpg");
 
   return (
-    <Sphere position-x={PLANETS.NEPTUNE.distance}>
+    <Sphere
+      position-x={PLANETS.NEPTUNE.distance}
+      scale={PLANETS.NEPTUNE.radius}
+    >
       <meshStandardMaterial map={surface} />
     </Sphere>
   );

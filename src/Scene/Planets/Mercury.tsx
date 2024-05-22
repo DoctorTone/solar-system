@@ -5,7 +5,10 @@ const Mercury = () => {
   const surface = useTexture("./textures/mercury.jpg");
 
   return (
-    <Sphere position-x={PLANETS.MERCURY.distance}>
+    <Sphere
+      position-x={PLANETS.MERCURY.distance}
+      scale={PLANETS.MERCURY.radius}
+    >
       <meshStandardMaterial map={surface} />
     </Sphere>
   );

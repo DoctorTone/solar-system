@@ -5,7 +5,7 @@ const Mars = () => {
   const surface = useTexture("./textures/mars.jpg");
 
   return (
-    <Sphere position-x={PLANETS.MARS.distance}>
+    <Sphere position-x={PLANETS.MARS.distance} scale={PLANETS.MARS.radius}>
       <meshStandardMaterial map={surface} />
     </Sphere>
   );

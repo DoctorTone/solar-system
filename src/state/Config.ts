@@ -7,44 +7,47 @@ const SCENE = {
 };
 
 const SUN = {
-  radius: 70,
+  radius: 109.167,
   colour: 0xffffff,
   intensity: 1000,
   distance: 0,
 };
 
+const START_DISTANCE = 130;
+const PLANET_GAP = 30;
+
 const PLANETS = {
   MERCURY: {
-    distance: 115,
-    radius: 1,
+    distance: START_DISTANCE,
+    radius: 0.383,
   },
   VENUS: {
-    distance: 30,
-    radius: 1,
+    distance: START_DISTANCE + PLANET_GAP,
+    radius: 0.95,
   },
   EARTH: {
-    distance: 100,
-    radius: 0.64,
-  },
-  MARS: {
-    distance: 60,
+    distance: START_DISTANCE + PLANET_GAP * 2,
     radius: 1,
   },
+  MARS: {
+    distance: START_DISTANCE + PLANET_GAP * 3,
+    radius: 0.532,
+  },
   JUPITER: {
-    distance: 75,
+    distance: START_DISTANCE + PLANET_GAP * 4,
     radius: 10.973,
   },
   SATURN: {
-    distance: 90,
-    radius: 1,
+    distance: START_DISTANCE + PLANET_GAP * 5,
+    radius: 9.14,
   },
   URANUS: {
-    distance: 105,
-    radius: 1,
+    distance: START_DISTANCE + PLANET_GAP * 6,
+    radius: 3.981,
   },
   NEPTUNE: {
-    distance: 120,
-    radius: 1,
+    distance: START_DISTANCE + PLANET_GAP * 7,
+    radius: 3.865,
   },
 };
 

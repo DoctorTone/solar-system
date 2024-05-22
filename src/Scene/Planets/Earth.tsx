@@ -5,7 +5,7 @@ const Earth = () => {
   const surface = useTexture("./textures/earth_daymap.jpg");
 
   return (
-    <Sphere position-x={PLANETS.EARTH.distance}>
+    <Sphere position-x={PLANETS.EARTH.distance} scale={PLANETS.EARTH.radius}>
       <meshStandardMaterial map={surface} />
     </Sphere>
   );
