@@ -32,7 +32,7 @@ const PLANETS = {
   VENUS: {
     distance: START_DISTANCE + PLANET_GAP,
     radius: 0.95 * PLANET_SCALE,
-    angle: 1.222,
+    angle: -0.7,
   },
   EARTH: {
     distance: START_DISTANCE + PLANET_GAP * 2,
@@ -42,7 +42,7 @@ const PLANETS = {
   MARS: {
     distance: START_DISTANCE + PLANET_GAP * 3,
     radius: 0.532 * PLANET_SCALE,
-    angle: 2.618,
+    angle: Math.PI,
   },
   JUPITER: {
     distance: START_DISTANCE + PLANET_GAP * 4,
@@ -57,7 +57,7 @@ const PLANETS = {
   URANUS: {
     distance: START_DISTANCE + PLANET_GAP * 6,
     radius: 3.981 * PLANET_SCALE,
-    angle: 2.269,
+    angle: -2.7,
   },
   NEPTUNE: {
     distance: START_DISTANCE + PLANET_GAP * 7,
