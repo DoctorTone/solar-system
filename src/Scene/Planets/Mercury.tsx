@@ -13,7 +13,7 @@ const Mercury = () => {
     >
       <meshStandardMaterial map={surface} />
     </Sphere>
-    <Path />
+    <Path startDistance={PLANETS.MERCURY.distance}/>
     </>
   );
 };

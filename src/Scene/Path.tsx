@@ -2,9 +2,13 @@ import { DoubleSide } from "three";
 import {Ring} from "@react-three/drei"
 import { PLANETS } from "../state/Config"
 
-const Path = () => {
+type RingProps = {
+startDistance: number;
+}
+
+const Path: React.FC<RingProps> = ({startDistance}) => {
     return (
-        <Ring args={[PLANETS.MERCURY.distance, PLANETS.MERCURY.distance+1, 32] } 
+        <Ring args={[startDistance, startDistance+1, 32] } 
         rotation-x={Math.PI / 2}>
             <meshStandardMaterial side={DoubleSide} />
         </Ring>
