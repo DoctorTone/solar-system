@@ -1,7 +1,10 @@
 import { Vector3 } from "three";
 
 const SCENE = {
-  cameraPosition: new Vector3(0, 0, 800),
+  FOV: 45,
+  NEAR: 1,
+  FAR: 10000,
+  cameraPosition: new Vector3(0, 250, 800),
   lightPosition: new Vector3(0, 0, 0),
   ambientIntensity: 1,
 };
