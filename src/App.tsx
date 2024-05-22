@@ -7,7 +7,7 @@ import System from "./Scene/System";
 function App() {
   return (
     <>
-      <Canvas camera={{ fov: 45, position: SCENE.cameraPosition }}>
+      <Canvas camera={{ fov: 45, far: 5000, position: SCENE.cameraPosition }}>
         <Lights />
         <System />
         <OrbitControls
