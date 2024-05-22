@@ -25,42 +25,42 @@ const PLANETS = {
   MERCURY: {
     distance: START_DISTANCE,
     radius: 0.383 * PLANET_SCALE,
-    angle: -Math.PI/4
+    angle: -2.094,
   },
   VENUS: {
     distance: START_DISTANCE + PLANET_GAP,
     radius: 0.95 * PLANET_SCALE,
-    angle: -0.196,
+    angle: 1.222,
   },
   EARTH: {
     distance: START_DISTANCE + PLANET_GAP * 2,
     radius: 1 * PLANET_SCALE,
-    angle: 0.393,
+    angle: -0.262,
   },
   MARS: {
     distance: START_DISTANCE + PLANET_GAP * 3,
     radius: 0.532 * PLANET_SCALE,
-    angle: 0.982,
+    angle: 2.618,
   },
   JUPITER: {
     distance: START_DISTANCE + PLANET_GAP * 4,
     radius: 10.973 * PLANET_SCALE,
-    angle: Math.PI/2,
+    angle: -1.745,
   },
   SATURN: {
     distance: START_DISTANCE + PLANET_GAP * 5,
     radius: 9.14 * PLANET_SCALE,
-    angle: 2.16,
+    angle: 0,
   },
   URANUS: {
     distance: START_DISTANCE + PLANET_GAP * 6,
     radius: 3.981 * PLANET_SCALE,
-    angle: 2.749,
+    angle: 2.269,
   },
   NEPTUNE: {
     distance: START_DISTANCE + PLANET_GAP * 7,
     radius: 3.865 * PLANET_SCALE,
-    angle: 3.338
+    angle: -1.222,
   },
 };
 
