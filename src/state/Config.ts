@@ -1,7 +1,7 @@
 import { Vector3 } from "three";
 
 const SCENE = {
-  cameraPosition: new Vector3(0, 0, 30),
+  cameraPosition: new Vector3(0, 0, 800),
   lightPosition: new Vector3(0, 0, 0),
   ambientIntensity: 1,
 };
@@ -13,8 +13,8 @@ const SUN = {
   distance: 0,
 };
 
-const START_DISTANCE = 130;
-const PLANET_GAP = 30;
+const START_DISTANCE = 150;
+const PLANET_GAP = 70;
 
 const PLANETS = {
   MERCURY: {
