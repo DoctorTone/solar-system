@@ -1,7 +1,8 @@
 import { DoubleSide, Vector3 } from "three";
-import { Sphere, useTexture, Ring } from "@react-three/drei";
+import { Sphere, useTexture, Ring, Text } from "@react-three/drei";
 import { PLANETS } from "../../state/Config";
 import Path from "../Path";
+import { SCENE } from "../../state/Config";
 
 const Saturn = () => {
   const surface = useTexture("./textures/saturn.jpg");
@@ -13,12 +14,25 @@ const Saturn = () => {
     new Vector3(0, 1, 0),
     PLANETS.SATURN.angle
   );
+  const textPosition = new Vector3().copy(position);
+  textPosition.y += 40;
 
   return (
     <>
       <Sphere position={position} scale={PLANETS.SATURN.radius}>
         <meshStandardMaterial map={surface} />
       </Sphere>
+      <Text
+        color="white"
+        fontSize={SCENE.FONT_SIZE}
+        anchorX="center"
+        anchorY="middle"
+        outlineWidth={SCENE.FONT_OUTLINE_WIDTH}
+        outlineColor="black"
+        position={textPosition}
+      >
+        Saturn
+      </Text>
       <Ring
         args={[PLANETS.SATURN.radius + 2, PLANETS.SATURN.radius + 10, 32]}
         position={position}
