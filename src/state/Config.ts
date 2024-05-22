@@ -7,6 +7,8 @@ const SCENE = {
   cameraPosition: new Vector3(0, 250, 1200),
   lightPosition: new Vector3(0, 0, 0),
   ambientIntensity: 1,
+  FONT_SIZE: 15,
+  FONT_OUTLINE_WIDTH: 1.5,
 };
 
 const PLANET_SCALE = 2;
