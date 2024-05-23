@@ -11,12 +11,15 @@ const Saturn = () => {
   const surface = useTexture("./textures/saturn.jpg");
   const rings = useTexture("./textures/saturn_ring.png");
   const showPath = useStore((state) => state.showPaths);
+  const animatePlanets = useStore((state) => state.animatePlanets);
+  const groupRef = useRef<Group>(null);
   const planetRef = useRef<Group>(null);
+  const textRef = useRef<Group>(null);
 
   // Calculate planet position
   const distance = new Vector3(PLANETS.SATURN.distance, 0, 0);
   const position = distance.applyAxisAngle(
-    new Vector3(0, 1, 0),
+    SCENE.ROTATION_AXIS,
     PLANETS.SATURN.angle
   );
   const textPosition = new Vector3().copy(position);
@@ -24,37 +27,44 @@ const Saturn = () => {
 
   useFrame((_, delta) => {
     planetRef.current!.rotation.y += delta * PLANETS.SATURN.rotationSpeed;
+    if (animatePlanets) {
+      groupRef.current!.position.copy(
+        distance.applyAxisAngle(
+          SCENE.ROTATION_AXIS,
+          delta * PLANETS.SATURN.animationSpeed
+        )
+      );
+      textRef.current!.position.y = planetRef.current!.position.y + 40;
+    }
   });
 
   return (
     <>
-      <group
-        ref={planetRef}
-        position={position}
-        rotation-x={PLANETS.SATURN.tilt}
-      >
-        <Sphere scale={PLANETS.SATURN.radius}>
-          <meshStandardMaterial map={surface} />
-        </Sphere>
-        <Ring
-          args={[PLANETS.SATURN.radius + 2, PLANETS.SATURN.radius + 10, 32]}
-          rotation-x={Math.PI / 2}
-        >
-          <meshStandardMaterial side={DoubleSide} map={rings} />
-        </Ring>
+      <group ref={groupRef} position={position}>
+        <group ref={planetRef} rotation-x={PLANETS.SATURN.tilt}>
+          <Sphere scale={PLANETS.SATURN.radius}>
+            <meshStandardMaterial map={surface} />
+          </Sphere>
+          <Ring
+            args={[PLANETS.SATURN.radius + 2, PLANETS.SATURN.radius + 10, 32]}
+            rotation-x={Math.PI / 2}
+          >
+            <meshStandardMaterial side={DoubleSide} map={rings} />
+          </Ring>
+        </group>
+        <Billboard ref={textRef} position-y={position.y + 40}>
+          <Text
+            color="white"
+            fontSize={SCENE.FONT_SIZE}
+            anchorX="center"
+            anchorY="middle"
+            outlineWidth={SCENE.FONT_OUTLINE_WIDTH}
+            outlineColor="black"
+          >
+            Saturn
+          </Text>
+        </Billboard>
       </group>
-      <Billboard position={textPosition}>
-        <Text
-          color="white"
-          fontSize={SCENE.FONT_SIZE}
-          anchorX="center"
-          anchorY="middle"
-          outlineWidth={SCENE.FONT_OUTLINE_WIDTH}
-          outlineColor="black"
-        >
-          Saturn
-        </Text>
-      </Billboard>
       {showPath && <Path startDistance={PLANETS.SATURN.distance} />}
     </>
   );
