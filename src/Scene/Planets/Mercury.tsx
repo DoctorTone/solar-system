@@ -3,7 +3,7 @@ import { Sphere, useTexture, Text, Billboard } from "@react-three/drei";
 import { PLANETS } from "../../state/Config";
 import { useFrame } from "@react-three/fiber";
 import Path from "../Path";
-import { Vector3, Group } from "three";
+import { Vector3, Group, Mesh } from "three";
 import { SCENE } from "../../state/Config";
 import useStore from "../../state/store";
 
@@ -11,7 +11,8 @@ const Mercury = () => {
   const surface = useTexture("./textures/mercury.jpg");
   const showPath = useStore((state) => state.showPaths);
   const animatePlanets = useStore((state) => state.animatePlanets);
-  const planetRef = useRef<Group>(null);
+  const planetRef = useRef<Mesh>(null);
+  const groupRef = useRef<Group>(null);
   const textRef = useRef<Group>(null);
 
   // Calculate planet position
@@ -26,7 +27,7 @@ const Mercury = () => {
   useFrame((_, delta) => {
     planetRef.current!.rotation.y += delta * PLANETS.MERCURY.rotationSpeed;
     if (animatePlanets) {
-      planetRef.current!.position.copy(
+      groupRef.current!.position.copy(
         distance.applyAxisAngle(
           SCENE.ROTATION_AXIS,
           delta * PLANETS.MERCURY.animationSpeed
@@ -38,8 +39,9 @@ const Mercury = () => {
 
   return (
     <>
-      <group ref={planetRef} position={position}>
+      <group ref={groupRef} position={position}>
         <Sphere
+          ref={planetRef}
           scale={PLANETS.MERCURY.radius}
           rotation-x={PLANETS.MERCURY.tilt}
         >

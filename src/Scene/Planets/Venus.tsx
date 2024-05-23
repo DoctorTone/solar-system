@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Vector3, Group } from "three";
+import { Vector3, Group, Mesh } from "three";
 import { Sphere, useTexture, Text, Billboard } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { PLANETS } from "../../state/Config";
@@ -11,7 +11,8 @@ const Venus = () => {
   const atmosphere = useTexture("./textures/venus_atmosphere.jpg");
   const showPath = useStore((state) => state.showPaths);
   const animatePlanets = useStore((state) => state.animatePlanets);
-  const planetRef = useRef<Group>(null);
+  const planetRef = useRef<Mesh>(null);
+  const groupRef = useRef<Group>(null);
   const textRef = useRef<Group>(null);
 
   // Calculate planet position
@@ -26,7 +27,7 @@ const Venus = () => {
   useFrame((_, delta) => {
     planetRef.current!.rotation.y += delta * PLANETS.VENUS.rotationSpeed;
     if (animatePlanets) {
-      planetRef.current!.position.copy(
+      groupRef.current!.position.copy(
         distance.applyAxisAngle(
           SCENE.ROTATION_AXIS,
           delta * PLANETS.VENUS.animationSpeed
@@ -38,8 +39,12 @@ const Venus = () => {
 
   return (
     <>
-      <group ref={planetRef} position={position}>
-        <Sphere scale={PLANETS.VENUS.radius} rotation-x={PLANETS.VENUS.tilt}>
+      <group ref={groupRef} position={position}>
+        <Sphere
+          ref={planetRef}
+          scale={PLANETS.VENUS.radius}
+          rotation-x={PLANETS.VENUS.tilt}
+        >
           <meshStandardMaterial map={atmosphere} />
         </Sphere>
         <Billboard ref={textRef} position-y={position.y + 20}>
