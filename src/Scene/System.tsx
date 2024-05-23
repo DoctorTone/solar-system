@@ -9,8 +9,13 @@ import Saturn from "./Planets/Saturn";
 import Uranus from "./Planets/Uranus";
 import Neptune from "./Planets/Neptune";
 import { Stars } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 
 const System = () => {
+  useFrame((state) => {
+    console.log("State = ", state.camera.position);
+  });
+
   return (
     <>
       {/* <Stars /> */}

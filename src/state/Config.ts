@@ -66,6 +66,7 @@ const PLANETS = {
     tilt: 0.05,
     rotationSpeed: (2 * Math.PI) / 2.07,
     animationSpeed: 0.25,
+    viewPosition: new Vector3(-94, 48, 666),
   },
   SATURN: {
     distance: START_DISTANCE + PLANET_GAP * 5,
