@@ -1,33 +1,32 @@
+import { useState } from "react";
+import Fab from "@mui/material/Fab";
+import NavigationIcon from "@mui/icons-material/Navigation";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
 import useStore from "../state/store";
-import { ChangeEvent } from "react";
 
 const FlyUI = () => {
+  const [showList, setShowList] = useState(false);
   const setCurrentView = useStore((state) => state.setCurrentView);
 
-  const changeView = (event: ChangeEvent<HTMLInputElement>, value: string) => {
-    setCurrentView(value);
+  const toggleList = () => {
+    setShowList(!showList);
+  };
+
+  const changeView = (event: SelectChangeEvent) => {
+    setCurrentView(event.target.value as string);
   };
 
   return (
     <div id="flyUI" className="panel">
-      <FormControl>
-        <FormLabel
-          sx={{
-            color: "white",
-            "&.Mui-focused": {
-              color: "white",
-            },
-          }}
-          id="demo-radio-buttons-group-label"
-        >
-          Fly To
-        </FormLabel>
+      <Fab sx={{ mb: 3 }} onClick={toggleList} size="small" variant="extended">
+        <NavigationIcon sx={{ mr: 1 }} />
+        Fly To
+      </Fab>
+      {showList && (
         <RadioGroup
+          sx={{ ml: 1 }}
           aria-labelledby="demo-radio-buttons-group-label"
           defaultValue="start"
           name="radio-buttons-group"
@@ -46,7 +45,7 @@ const FlyUI = () => {
             label="Jupiter"
           />
         </RadioGroup>
-      </FormControl>
+      )}
     </div>
   );
 };
