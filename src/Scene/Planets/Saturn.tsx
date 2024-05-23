@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { DoubleSide, Vector3, Group } from "three";
-import { Sphere, useTexture, Ring, Text, Billboard } from "@react-three/drei";
+import { Sphere, useTexture, Text, Billboard } from "@react-three/drei";
+import { Rings } from "./Rings";
 import { useFrame } from "@react-three/fiber";
 import { PLANETS } from "../../state/Config";
 import Path from "../Path";
@@ -9,7 +10,6 @@ import useStore from "../../state/store";
 
 const Saturn = () => {
   const surface = useTexture("./textures/saturn.jpg");
-  const rings = useTexture("./textures/saturn_ring.png");
   const showPath = useStore((state) => state.showPaths);
   const animatePlanets = useStore((state) => state.animatePlanets);
   const groupRef = useRef<Group>(null);
@@ -45,12 +45,7 @@ const Saturn = () => {
           <Sphere scale={PLANETS.SATURN.radius}>
             <meshStandardMaterial map={surface} />
           </Sphere>
-          <Ring
-            args={[PLANETS.SATURN.radius + 2, PLANETS.SATURN.radius + 10, 32]}
-            rotation-x={Math.PI / 2}
-          >
-            <meshStandardMaterial side={DoubleSide} map={rings} />
-          </Ring>
+          <Rings scale={22} />
         </group>
         <Billboard ref={textRef} position-y={position.y + 40}>
           <Text
