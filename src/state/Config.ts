@@ -10,6 +10,8 @@ const SCENE = {
   FONT_SIZE: 15,
   FONT_OUTLINE_WIDTH: 1.5,
   RING_SEGMENTS: 128,
+  ROTATION_AXIS: new Vector3(0, 1, 0),
+  ANIMATION_SPEED: 0.25,
 };
 
 const PLANET_SCALE = 2;
