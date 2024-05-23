@@ -15,17 +15,22 @@ import { SCENE, PLANETS } from "../state/Config";
 const System = () => {
   const { camera } = useThree();
   const currentView = useStore((state) => state.currentView);
+  const toggleShowPaths = useStore((state) => state.toggleShowPaths);
+
   switch (currentView) {
     case "start":
       camera.position.copy(SCENE.cameraPosition);
+      toggleShowPaths(true);
       break;
 
     case "mercury":
       camera.position.copy(PLANETS.MERCURY.viewPosition);
+      toggleShowPaths(false);
       break;
 
     case "jupiter":
       camera.position.copy(PLANETS.JUPITER.viewPosition);
+      toggleShowPaths(true);
       break;
 
     default:

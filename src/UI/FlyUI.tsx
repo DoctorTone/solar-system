@@ -34,6 +34,11 @@ const FlyUI = () => {
           onChange={changeView}
         >
           <FormControlLabel value="start" control={<Radio />} label="Start" />
+          <FormControlLabel
+            value="mercury"
+            control={<Radio />}
+            label="Mercury"
+          />
           <FormControlLabel value="earth" control={<Radio />} label="Earth" />
           <FormControlLabel
             value="jupiter"
