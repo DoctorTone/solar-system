@@ -19,3 +19,10 @@ body {
   top: 5%;
   right: 10%;
 }
+#flyUI {
+  top: 5%;
+  left: 10%;
+}
+FormLabel {
+  color: white;
+}

@@ -1,4 +1,3 @@
-import React from "react";
 import Sun from "./Planets/Sun";
 import Mercury from "./Planets/Mercury";
 import Venus from "./Planets/Venus";
@@ -9,12 +8,29 @@ import Saturn from "./Planets/Saturn";
 import Uranus from "./Planets/Uranus";
 import Neptune from "./Planets/Neptune";
 import { Stars } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { useThree } from "@react-three/fiber";
+import useStore from "../state/store";
+import { SCENE, PLANETS } from "../state/Config";
 
 const System = () => {
-  useFrame((state) => {
-    console.log("State = ", state.camera.position);
-  });
+  const { camera } = useThree();
+  const currentView = useStore((state) => state.currentView);
+  switch (currentView) {
+    case "start":
+      camera.position.copy(SCENE.cameraPosition);
+      break;
+
+    case "mercury":
+      camera.position.copy(PLANETS.MERCURY.viewPosition);
+      break;
+
+    case "jupiter":
+      camera.position.copy(PLANETS.JUPITER.viewPosition);
+      break;
+
+    default:
+      break;
+  }
 
   return (
     <>
