@@ -75,6 +75,7 @@ const PLANETS = {
     angle: -2.7,
     tilt: 1.71,
     rotationSpeed: (2 * Math.PI) / 6.38,
+    animationSpeed: 0.25,
   },
   NEPTUNE: {
     distance: START_DISTANCE + PLANET_GAP * 7,

@@ -10,6 +10,7 @@ import useStore from "../../state/store";
 const Uranus = () => {
   const surface = useTexture("./textures/uranus.jpg");
   const showPath = useStore((state) => state.showPaths);
+  const animatePlanets = useStore((state) => state.animatePlanets);
   const planetRef = useRef<Group>(null);
   const textRef = useRef<Group>(null);
 
@@ -24,22 +25,24 @@ const Uranus = () => {
 
   useFrame((_, delta) => {
     planetRef.current!.rotation.y += delta * PLANETS.URANUS.rotationSpeed;
-    planetRef.current!.position.copy(
-      distance.applyAxisAngle(
-        SCENE.ROTATION_AXIS,
-        delta * SCENE.ANIMATION_SPEED
-      )
-    );
-    textRef.current!.position.y = planetRef.current!.position.y + 20;
+    if (animatePlanets) {
+      planetRef.current!.position.copy(
+        distance.applyAxisAngle(
+          SCENE.ROTATION_AXIS,
+          delta * PLANETS.URANUS.animationSpeed
+        )
+      );
+      textRef.current!.position.y = planetRef.current!.position.y + 20;
+    }
   });
 
   return (
     <>
-      <group ref={planetRef}>
+      <group ref={planetRef} position={position}>
         <Sphere scale={PLANETS.URANUS.radius} rotation-x={PLANETS.URANUS.tilt}>
           <meshStandardMaterial map={surface} />
         </Sphere>
-        <Billboard ref={textRef}>
+        <Billboard ref={textRef} position-y={position.y + 20}>
           <Text
             color="white"
             fontSize={SCENE.FONT_SIZE}
