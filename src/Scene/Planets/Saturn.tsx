@@ -1,5 +1,7 @@
-import { DoubleSide, Vector3 } from "three";
+import { useRef } from "react";
+import { DoubleSide, Vector3, Group } from "three";
 import { Sphere, useTexture, Ring, Text, Billboard } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 import { PLANETS } from "../../state/Config";
 import Path from "../Path";
 import { SCENE } from "../../state/Config";
@@ -9,6 +11,7 @@ const Saturn = () => {
   const surface = useTexture("./textures/saturn.jpg");
   const rings = useTexture("./textures/saturn_ring.png");
   const showPath = useStore((state) => state.showPaths);
+  const planetRef = useRef<Group>(null);
 
   // Calculate planet position
   const distance = new Vector3(PLANETS.SATURN.distance, 0, 0);
@@ -19,9 +22,17 @@ const Saturn = () => {
   const textPosition = new Vector3().copy(position);
   textPosition.y += 40;
 
+  useFrame((_, delta) => {
+    planetRef.current!.rotation.y += delta * PLANETS.SATURN.rotationSpeed;
+  });
+
   return (
     <>
-      <group position={position} rotation-z={PLANETS.SATURN.tilt}>
+      <group
+        ref={planetRef}
+        position={position}
+        rotation-x={PLANETS.SATURN.tilt}
+      >
         <Sphere scale={PLANETS.SATURN.radius}>
           <meshStandardMaterial map={surface} />
         </Sphere>

@@ -1,13 +1,16 @@
+import { useRef } from "react";
 import { Sphere, useTexture, Text, Billboard } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 import { PLANETS } from "../../state/Config";
 import Path from "../Path";
-import { Vector3 } from "three";
+import { Vector3, Mesh } from "three";
 import { SCENE } from "../../state/Config";
 import useStore from "../../state/store";
 
 const Uranus = () => {
   const surface = useTexture("./textures/uranus.jpg");
   const showPath = useStore((state) => state.showPaths);
+  const planetRef = useRef<Mesh>(null);
 
   // Calculate planet position
   const distance = new Vector3(PLANETS.URANUS.distance, 0, 0);
@@ -18,12 +21,17 @@ const Uranus = () => {
   const textPosition = new Vector3().copy(position);
   textPosition.y += 20;
 
+  useFrame((_, delta) => {
+    planetRef.current!.rotation.y += delta * PLANETS.URANUS.rotationSpeed;
+  });
+
   return (
     <>
       <Sphere
+        ref={planetRef}
         position={position}
         scale={PLANETS.URANUS.radius}
-        rotation-z={PLANETS.URANUS.tilt}
+        rotation-x={PLANETS.URANUS.tilt}
       >
         <meshStandardMaterial map={surface} />
       </Sphere>

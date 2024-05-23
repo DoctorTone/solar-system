@@ -31,7 +31,7 @@ const Jupiter = () => {
         ref={planetRef}
         position={position}
         scale={PLANETS.JUPITER.radius}
-        rotation-z={PLANETS.JUPITER.tilt}
+        rotation-x={PLANETS.JUPITER.tilt}
       >
         <meshStandardMaterial map={surface} />
       </Sphere>

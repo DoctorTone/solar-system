@@ -31,7 +31,7 @@ const Mercury = () => {
         ref={planetRef}
         position={position}
         scale={PLANETS.MERCURY.radius}
-        rotation-z={PLANETS.MERCURY.tilt}
+        rotation-x={PLANETS.MERCURY.tilt}
       >
         <meshStandardMaterial map={surface} />
       </Sphere>
