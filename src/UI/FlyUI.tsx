@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import Fab from "@mui/material/Fab";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Radio from "@mui/material/Radio";
@@ -9,13 +9,15 @@ import useStore from "../state/store";
 const FlyUI = () => {
   const [showList, setShowList] = useState(false);
   const setCurrentView = useStore((state) => state.setCurrentView);
+  const currentView = useStore((state) => state.currentView);
 
   const toggleList = () => {
     setShowList(!showList);
   };
 
-  const changeView = (event: SelectChangeEvent) => {
-    setCurrentView(event.target.value as string);
+  const changeView = (event: ChangeEvent<HTMLInputElement>, value: string) => {
+    setShowList(false);
+    setCurrentView(value);
   };
 
   return (
@@ -30,6 +32,7 @@ const FlyUI = () => {
           aria-labelledby="demo-radio-buttons-group-label"
           defaultValue="start"
           name="radio-buttons-group"
+          value={currentView}
           onChange={changeView}
         >
           <FormControlLabel value="start" control={<Radio />} label="Start" />

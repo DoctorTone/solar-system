@@ -34,7 +34,7 @@ const PLANETS = {
     tilt: 0,
     rotationSpeed: (2 * Math.PI) / 8720,
     animationSpeed: 0.25,
-    viewPosition: new Vector3(-140, 15, 265),
+    viewPosition: new Vector3(-150, 15, 265),
   },
   VENUS: {
     distance: START_DISTANCE + PLANET_GAP,
@@ -67,7 +67,7 @@ const PLANETS = {
     tilt: 0.05,
     rotationSpeed: (2 * Math.PI) / 2.07,
     animationSpeed: 0.25,
-    viewPosition: new Vector3(-94, 20, 666),
+    viewPosition: new Vector3(-110, 20, 630),
   },
   SATURN: {
     distance: START_DISTANCE + PLANET_GAP * 5,
