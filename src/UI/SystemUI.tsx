@@ -7,12 +7,23 @@ import { ChangeEvent } from "react";
 const SystemUI = () => {
   const showPaths = useStore((state) => state.showPaths);
   const toggleShowPaths = useStore((state) => state.toggleShowPaths);
+  const animatePlanets = useStore((state) => state.animatePlanets);
+  const togglePlanetAnimation = useStore(
+    (state) => state.togglePlanetAnimation
+  );
 
   const togglePaths = (
     event: ChangeEvent<HTMLInputElement>,
     checked: boolean
   ) => {
     toggleShowPaths(checked);
+  };
+
+  const toggleAnimation = (
+    event: ChangeEvent<HTMLInputElement>,
+    checked: boolean
+  ) => {
+    togglePlanetAnimation(checked);
   };
 
   return (
@@ -33,6 +44,21 @@ const SystemUI = () => {
               />
             }
             label="Show paths"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={animatePlanets}
+                onChange={toggleAnimation}
+                sx={{
+                  color: blue[800],
+                  "&.Mui-checked": {
+                    color: blue[600],
+                  },
+                }}
+              />
+            }
+            label="Animate planets"
           />
         </FormGroup>
       </div>

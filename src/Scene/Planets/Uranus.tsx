@@ -12,19 +12,23 @@ const Uranus = () => {
   const showPath = useStore((state) => state.showPaths);
   const planetRef = useRef<Group>(null);
   const textRef = useRef<Group>(null);
-  let currentAngle = PLANETS.URANUS.angle;
 
   // Calculate planet position
   const distance = new Vector3(PLANETS.URANUS.distance, 0, 0);
-  const position = distance.applyAxisAngle(SCENE.ROTATION_AXIS, currentAngle);
+  const position = distance.applyAxisAngle(
+    SCENE.ROTATION_AXIS,
+    PLANETS.URANUS.angle
+  );
   const textPosition = new Vector3().copy(position);
   textPosition.y += 20;
 
   useFrame((_, delta) => {
     planetRef.current!.rotation.y += delta * PLANETS.URANUS.rotationSpeed;
-    currentAngle += delta * 0.0001;
     planetRef.current!.position.copy(
-      distance.applyAxisAngle(SCENE.ROTATION_AXIS, delta * 0.25)
+      distance.applyAxisAngle(
+        SCENE.ROTATION_AXIS,
+        delta * SCENE.ANIMATION_SPEED
+      )
     );
     textRef.current!.position.y = planetRef.current!.position.y + 20;
   });
