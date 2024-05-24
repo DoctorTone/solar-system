@@ -5,7 +5,7 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import useStore from "../state/store";
-import { grey } from "@mui/material/colors";
+import { blue, grey } from "@mui/material/colors";
 
 const FlyUI = () => {
   const [showList, setShowList] = useState(false);
@@ -23,7 +23,18 @@ const FlyUI = () => {
 
   return (
     <div id="flyUI" className="panel">
-      <Fab sx={{ mb: 3 }} onClick={toggleList} size="small" variant="extended">
+      <Fab
+        sx={{
+          mb: 3,
+          backgroundColor: blue[400],
+          "&:hover": {
+            backgroundColor: blue[400],
+          },
+        }}
+        onClick={toggleList}
+        size="small"
+        variant="extended"
+      >
         <NavigationIcon sx={{ mr: 1 }} />
         Fly To
       </Fab>
