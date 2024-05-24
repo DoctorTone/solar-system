@@ -20,7 +20,7 @@ function App() {
         <System />
         <OrbitControls
           makeDefault
-          enablePan={true}
+          enablePan={false}
           enableRotate={true}
           enableDamping={true}
         />
