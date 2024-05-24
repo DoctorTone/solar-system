@@ -45,10 +45,34 @@ const System = () => {
         setVisibleModal(MODALS.EARTH);
         break;
 
+      case "mars":
+        camera.position.copy(PLANETS.MARS.viewPosition);
+        toggleShowPaths(false);
+        setVisibleModal(MODALS.MARS);
+        break;
+
       case "jupiter":
         camera.position.copy(PLANETS.JUPITER.viewPosition);
         toggleShowPaths(true);
         setVisibleModal(MODALS.JUPITER);
+        break;
+
+      case "saturn":
+        camera.position.copy(PLANETS.SATURN.viewPosition);
+        toggleShowPaths(true);
+        setVisibleModal(MODALS.SATURN);
+        break;
+
+      case "uranus":
+        camera.position.copy(PLANETS.URANUS.viewPosition);
+        toggleShowPaths(true);
+        setVisibleModal(MODALS.URANUS);
+        break;
+
+      case "neptune":
+        camera.position.copy(PLANETS.NEPTUNE.viewPosition);
+        toggleShowPaths(true);
+        setVisibleModal(MODALS.NEPTUNE);
         break;
 
       default:

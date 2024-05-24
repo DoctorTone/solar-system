@@ -62,6 +62,7 @@ const PLANETS = {
     tilt: 0.44,
     rotationSpeed: (2 * Math.PI) / 109.05,
     animationSpeed: 0.25,
+    viewPosition: new Vector3(-515, 15, 0),
   },
   JUPITER: {
     distance: START_DISTANCE + PLANET_GAP * 4,
@@ -79,6 +80,7 @@ const PLANETS = {
     tilt: 0.47,
     rotationSpeed: (2 * Math.PI) / 2.56,
     animationSpeed: 0.25,
+    viewPosition: new Vector3(700, 15, 0),
   },
   URANUS: {
     distance: START_DISTANCE + PLANET_GAP * 6,
@@ -87,6 +89,7 @@ const PLANETS = {
     tilt: 1.71,
     rotationSpeed: (2 * Math.PI) / 6.38,
     animationSpeed: 0.25,
+    viewPosition: new Vector3(-670, 15, 317),
   },
   NEPTUNE: {
     distance: START_DISTANCE + PLANET_GAP * 7,
@@ -95,6 +98,7 @@ const PLANETS = {
     tilt: 0.49,
     rotationSpeed: (2 * Math.PI) / 9.72,
     animationSpeed: 0.25,
+    viewPosition: new Vector3(277, 15, 760),
   },
 };
 

@@ -11,7 +11,7 @@ type ModalProps = {
   showModal: boolean;
 };
 
-const JupiterModal: React.FC<ModalProps> = ({ showModal }) => {
+const NeptuneModal: React.FC<ModalProps> = ({ showModal }) => {
   const [show, setShow] = useState(showModal);
 
   const handleClose = () => {
@@ -29,21 +29,22 @@ const JupiterModal: React.FC<ModalProps> = ({ showModal }) => {
         sx={{ fontSize: 30, color: "orange", backgroundColor: grey[900] }}
         id="alert-dialog-title"
       >
-        {"Jupiter"}
+        {"Neptune"}
       </DialogTitle>
       <DialogContent sx={{ color: grey[300], backgroundColor: grey[900] }}>
         <Typography sx={{ mb: 2 }}>
-          The fifth planet from the Sun and the largest in the Solar System. A
-          gas giant, Jupiter's mass is more than two and a half times that of
-          all the other planets in the Solar System combined and slightly less
-          than one one-thousandth the mass of the Sun.
+          The eighth and farthest known planet from the Sun. It is the
+          fourth-largest planet in the Solar System by diameter, the
+          third-most-massive planet, and the densest giant planet. It is 17
+          times the mass of Earth, and slightly more massive than fellow ice
+          giant Uranus.
         </Typography>
         <Typography gutterBottom>
-          Distance from Sun: 778.5 million km
+          Distance from Sun: 4.495 billion km
         </Typography>
-        <Typography gutterBottom>Diameter: 139,822 km</Typography>
-        <Typography gutterBottom>Length of day: 9 hours 56 minutes</Typography>
-        <Typography gutterBottom>Time to orbit: 11.86 years</Typography>
+        <Typography gutterBottom>Diameter: 49,244 km</Typography>
+        <Typography gutterBottom>Length of day: 16 hours 6 minutes</Typography>
+        <Typography gutterBottom>Time to orbit: 164.8 years</Typography>
       </DialogContent>
       <DialogActions sx={{ color: "white", backgroundColor: grey[900] }}>
         <Button sx={{ color: "white" }} onClick={handleClose} autoFocus>
@@ -54,4 +55,4 @@ const JupiterModal: React.FC<ModalProps> = ({ showModal }) => {
   );
 };
 
-export default JupiterModal;
+export default NeptuneModal;

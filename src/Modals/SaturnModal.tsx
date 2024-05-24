@@ -11,7 +11,7 @@ type ModalProps = {
   showModal: boolean;
 };
 
-const JupiterModal: React.FC<ModalProps> = ({ showModal }) => {
+const SaturnModal: React.FC<ModalProps> = ({ showModal }) => {
   const [show, setShow] = useState(showModal);
 
   const handleClose = () => {
@@ -29,21 +29,21 @@ const JupiterModal: React.FC<ModalProps> = ({ showModal }) => {
         sx={{ fontSize: 30, color: "orange", backgroundColor: grey[900] }}
         id="alert-dialog-title"
       >
-        {"Jupiter"}
+        {"Saturn"}
       </DialogTitle>
       <DialogContent sx={{ color: grey[300], backgroundColor: grey[900] }}>
         <Typography sx={{ mb: 2 }}>
-          The fifth planet from the Sun and the largest in the Solar System. A
-          gas giant, Jupiter's mass is more than two and a half times that of
-          all the other planets in the Solar System combined and slightly less
-          than one one-thousandth the mass of the Sun.
+          The sixth planet from the Sun and the second-largest in the Solar
+          System, after Jupiter. It is a gas giant with an average radius of
+          about nine-and-a-half times that of Earth. It has only one-eighth the
+          average density of Earth, but is over 95 times more massive.
         </Typography>
         <Typography gutterBottom>
-          Distance from Sun: 778.5 million km
+          Distance from Sun: 1.434 billion km
         </Typography>
-        <Typography gutterBottom>Diameter: 139,822 km</Typography>
-        <Typography gutterBottom>Length of day: 9 hours 56 minutes</Typography>
-        <Typography gutterBottom>Time to orbit: 11.86 years</Typography>
+        <Typography gutterBottom>Diameter: 116,464 km</Typography>
+        <Typography gutterBottom>Length of day: 10 hours 34 minutes</Typography>
+        <Typography gutterBottom>Time to orbit: 29.45 years</Typography>
       </DialogContent>
       <DialogActions sx={{ color: "white", backgroundColor: grey[900] }}>
         <Button sx={{ color: "white" }} onClick={handleClose} autoFocus>
@@ -54,4 +54,4 @@ const JupiterModal: React.FC<ModalProps> = ({ showModal }) => {
   );
 };
 
-export default JupiterModal;
+export default SaturnModal;
