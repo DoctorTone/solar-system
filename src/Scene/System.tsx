@@ -28,6 +28,7 @@ const System = () => {
     case "mercury":
       camera.position.copy(PLANETS.MERCURY.viewPosition);
       toggleShowPaths(false);
+      setVisibleModal(MODALS.MERCURY);
       break;
 
     case "jupiter":

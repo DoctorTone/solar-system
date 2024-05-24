@@ -1,5 +1,6 @@
 import { MODALS } from "../state/Config.js";
 import JupiterModal from "./JupiterModal.js";
+import MercuryModal from "./MercuryModal.js";
 import useStore from "../state/store.js";
 
 const ShowModals = () => {
@@ -8,6 +9,8 @@ const ShowModals = () => {
   switch (visibleModal) {
     case MODALS.JUPITER:
       return <JupiterModal showModal={true} />;
+    case MODALS.MERCURY:
+      return <MercuryModal showModal={true} />;
 
     default:
       break;

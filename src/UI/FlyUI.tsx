@@ -5,6 +5,7 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import useStore from "../state/store";
+import { grey } from "@mui/material/colors";
 
 const FlyUI = () => {
   const [showList, setShowList] = useState(false);
@@ -28,7 +29,11 @@ const FlyUI = () => {
       </Fab>
       {showList && (
         <RadioGroup
-          sx={{ ml: 1 }}
+          sx={{
+            backgroundColor: grey["900"],
+            borderRadius: "5px",
+            padding: "5%",
+          }}
           aria-labelledby="demo-radio-buttons-group-label"
           defaultValue="start"
           name="radio-buttons-group"
@@ -41,11 +46,20 @@ const FlyUI = () => {
             control={<Radio />}
             label="Mercury"
           />
+          <FormControlLabel value="venus" control={<Radio />} label="Venus" />
           <FormControlLabel value="earth" control={<Radio />} label="Earth" />
+          <FormControlLabel value="mars" control={<Radio />} label="Mars" />
           <FormControlLabel
             value="jupiter"
             control={<Radio />}
             label="Jupiter"
+          />
+          <FormControlLabel value="saturn" control={<Radio />} label="Saturn" />
+          <FormControlLabel value="uranus" control={<Radio />} label="Uranus" />
+          <FormControlLabel
+            value="neptune"
+            control={<Radio />}
+            label="Neptune"
           />
         </RadioGroup>
       )}
