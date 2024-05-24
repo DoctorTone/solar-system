@@ -82,7 +82,7 @@ const System = () => {
 
   return (
     <>
-      <Stars />
+      <Stars radius={SCENE.STAR_RADIUS} />
       <Sun />
       <Mercury />
       <Venus />

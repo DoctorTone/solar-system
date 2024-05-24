@@ -13,6 +13,7 @@ const SCENE = {
   RING_SEGMENTS: 128,
   ROTATION_AXIS: new Vector3(0, 1, 0),
   ANIMATION_SPEED: 0.25,
+  STAR_RADIUS: 1000,
 };
 
 const PLANET_SCALE = 2;
