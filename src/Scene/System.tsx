@@ -43,7 +43,7 @@ const System = () => {
 
   return (
     <>
-      {/* <Stars /> */}
+      <Stars />
       <Sun />
       <Mercury />
       <Venus />

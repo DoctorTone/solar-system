@@ -26,14 +26,14 @@ const MercuryModal: React.FC<ModalProps> = ({ showModal }) => {
       aria-describedby="alert-dialog-description"
     >
       <DialogTitle
-        sx={{ color: "orange", backgroundColor: grey[900] }}
+        sx={{ fontSize: 30, color: "orange", backgroundColor: grey[900] }}
         id="alert-dialog-title"
       >
         {"Mercury"}
       </DialogTitle>
-      <DialogContent sx={{ color: "white", backgroundColor: grey[900] }}>
+      <DialogContent sx={{ color: grey[500], backgroundColor: grey[900] }}>
         <DialogContentText
-          sx={{ color: "white", backgroundColor: grey[900] }}
+          sx={{ color: grey[300], backgroundColor: grey[900] }}
           id="alert-dialog-description"
         >
           The first planet from the Sun and the smallest in the Solar System. In
@@ -48,7 +48,7 @@ const MercuryModal: React.FC<ModalProps> = ({ showModal }) => {
         </DialogContentText>
       </DialogContent>
       <DialogActions sx={{ color: "white", backgroundColor: grey[900] }}>
-        <Button onClick={handleClose} autoFocus>
+        <Button sx={{ color: "white" }} onClick={handleClose} autoFocus>
           OK
         </Button>
       </DialogActions>
