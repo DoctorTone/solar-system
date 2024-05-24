@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Sun from "./Planets/Sun";
 import Mercury from "./Planets/Mercury";
 import Venus from "./Planets/Venus";
@@ -18,28 +19,42 @@ const System = () => {
   const toggleShowPaths = useStore((state) => state.toggleShowPaths);
   const setVisibleModal = useStore((state) => state.setVisibleModal);
 
-  switch (currentView) {
-    case "start":
-      camera.position.copy(SCENE.cameraPosition);
-      toggleShowPaths(true);
-      setVisibleModal(MODALS.NONE);
-      break;
+  useEffect(() => {
+    switch (currentView) {
+      case "start":
+        camera.position.copy(SCENE.cameraPosition);
+        toggleShowPaths(true);
+        setVisibleModal(MODALS.NONE);
+        break;
 
-    case "mercury":
-      camera.position.copy(PLANETS.MERCURY.viewPosition);
-      toggleShowPaths(false);
-      setVisibleModal(MODALS.MERCURY);
-      break;
+      case "mercury":
+        camera.position.copy(PLANETS.MERCURY.viewPosition);
+        toggleShowPaths(false);
+        setVisibleModal(MODALS.MERCURY);
+        break;
 
-    case "jupiter":
-      camera.position.copy(PLANETS.JUPITER.viewPosition);
-      toggleShowPaths(true);
-      setVisibleModal(MODALS.JUPITER);
-      break;
+      case "venus":
+        camera.position.copy(PLANETS.VENUS.viewPosition);
+        toggleShowPaths(false);
+        setVisibleModal(MODALS.VENUS);
+        break;
 
-    default:
-      break;
-  }
+      case "earth":
+        camera.position.copy(PLANETS.EARTH.viewPosition);
+        toggleShowPaths(false);
+        setVisibleModal(MODALS.EARTH);
+        break;
+
+      case "jupiter":
+        camera.position.copy(PLANETS.JUPITER.viewPosition);
+        toggleShowPaths(true);
+        setVisibleModal(MODALS.JUPITER);
+        break;
+
+      default:
+        break;
+    }
+  }, [currentView]);
 
   return (
     <>

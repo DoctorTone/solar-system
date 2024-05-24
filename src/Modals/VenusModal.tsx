@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
-import Typography from "@mui/material/Typography";
 import { grey } from "@mui/material/colors";
 
 type ModalProps = {
   showModal: boolean;
 };
 
-const MercuryModal: React.FC<ModalProps> = ({ showModal }) => {
+const VenusModal: React.FC<ModalProps> = ({ showModal }) => {
   const [show, setShow] = useState(showModal);
 
   const handleClose = () => {
@@ -29,22 +29,24 @@ const MercuryModal: React.FC<ModalProps> = ({ showModal }) => {
         sx={{ fontSize: 30, color: "orange", backgroundColor: grey[900] }}
         id="alert-dialog-title"
       >
-        {"Mercury"}
+        {"Venus"}
       </DialogTitle>
       <DialogContent sx={{ color: grey[300], backgroundColor: grey[900] }}>
         <Typography sx={{ mb: 2 }}>
-          The first planet from the Sun and the smallest in the Solar System. In
-          English, it is named after the ancient Roman god Mercurius, god of
-          commerce and communication, and the messenger of the gods. Mercury is
-          classified as a terrestrial planet, with roughly the same surface
-          gravity as Mars.
+          The second planet from the Sun. It is a terrestrial planet and is the
+          closest in mass and size to its orbital neighbour Earth. Venus is
+          notable for having the densest atmosphere of the terrestrial planets,
+          composed mostly of carbon dioxide with a thick, global sulfuric acid
+          cloud cover.
         </Typography>
-        <Typography gutterBottom>Distance from Sun: 58 million km</Typography>
-        <Typography gutterBottom>Diameter: 4879.4 km</Typography>
-        <Typography gutterBottom>Length of day: 59 days</Typography>
-        <Typography gutterBottom>Time to orbit: 88 days</Typography>
+        <Typography gutterBottom>
+          Distance from Sun: 108.2 million km
+        </Typography>
+        <Typography gutterBottom>Diameter: 12,103.6 km</Typography>
+        <Typography gutterBottom>Length of day: 243 days</Typography>
+        <Typography gutterBottom>Time to orbit: 225 days</Typography>
       </DialogContent>
-      <DialogActions sx={{ color: "white", backgroundColor: grey[900] }}>
+      <DialogActions sx={{ backgroundColor: grey[900] }}>
         <Button sx={{ color: "white" }} onClick={handleClose} autoFocus>
           OK
         </Button>
@@ -53,4 +55,4 @@ const MercuryModal: React.FC<ModalProps> = ({ showModal }) => {
   );
 };
 
-export default MercuryModal;
+export default VenusModal;

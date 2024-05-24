@@ -44,6 +44,7 @@ const PLANETS = {
     tilt: 3.09,
     rotationSpeed: (2 * Math.PI) / 14484,
     animationSpeed: 0.25,
+    viewPosition: new Vector3(275, 15, 235),
   },
   EARTH: {
     distance: START_DISTANCE + PLANET_GAP * 2,
@@ -52,6 +53,7 @@ const PLANETS = {
     tilt: 0.41,
     rotationSpeed: (2 * Math.PI) / 60,
     animationSpeed: 0.25,
+    viewPosition: new Vector3(425, 15, 115),
   },
   MARS: {
     distance: START_DISTANCE + PLANET_GAP * 3,
