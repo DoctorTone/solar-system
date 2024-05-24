@@ -10,17 +10,19 @@ import Neptune from "./Planets/Neptune";
 import { Stars } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import useStore from "../state/store";
-import { SCENE, PLANETS } from "../state/Config";
+import { SCENE, PLANETS, MODALS } from "../state/Config";
 
 const System = () => {
   const { camera } = useThree();
   const currentView = useStore((state) => state.currentView);
   const toggleShowPaths = useStore((state) => state.toggleShowPaths);
+  const setVisibleModal = useStore((state) => state.setVisibleModal);
 
   switch (currentView) {
     case "start":
       camera.position.copy(SCENE.cameraPosition);
       toggleShowPaths(true);
+      setVisibleModal(MODALS.NONE);
       break;
 
     case "mercury":
@@ -31,6 +33,7 @@ const System = () => {
     case "jupiter":
       camera.position.copy(PLANETS.JUPITER.viewPosition);
       toggleShowPaths(true);
+      setVisibleModal(MODALS.JUPITER);
       break;
 
     default:
