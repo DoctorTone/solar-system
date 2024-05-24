@@ -30,9 +30,10 @@ const FlyUI = () => {
       {showList && (
         <RadioGroup
           sx={{
-            backgroundColor: grey["900"],
+            backgroundColor: grey[900],
+            opacity: 0.75,
             borderRadius: "5px",
-            padding: "5%",
+            padding: "1% 1% 1% 10%",
           }}
           aria-labelledby="demo-radio-buttons-group-label"
           defaultValue="start"
