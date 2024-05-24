@@ -42,7 +42,14 @@ const Saturn = () => {
     <>
       <group ref={groupRef} position={position}>
         <group ref={planetRef} rotation-x={PLANETS.SATURN.tilt}>
-          <Sphere scale={PLANETS.SATURN.radius}>
+          <Sphere
+            args={[
+              SCENE.PLANET_RADIUS,
+              SCENE.PLANET_WIDTH_SEGMENTS,
+              SCENE.PLANET_HEIGHT_SEGMENTS,
+            ]}
+            scale={PLANETS.SATURN.radius}
+          >
             <meshStandardMaterial map={surface} />
           </Sphere>
           <Rings scale={22} />

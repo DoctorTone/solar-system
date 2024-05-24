@@ -41,6 +41,11 @@ const Mercury = () => {
     <>
       <group ref={groupRef} position={position}>
         <Sphere
+          args={[
+            SCENE.PLANET_RADIUS,
+            SCENE.PLANET_WIDTH_SEGMENTS,
+            SCENE.PLANET_HEIGHT_SEGMENTS,
+          ]}
           ref={planetRef}
           scale={PLANETS.MERCURY.radius}
           rotation-x={PLANETS.MERCURY.tilt}

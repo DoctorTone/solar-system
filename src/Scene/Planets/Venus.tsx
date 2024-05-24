@@ -41,6 +41,11 @@ const Venus = () => {
     <>
       <group ref={groupRef} position={position}>
         <Sphere
+          args={[
+            SCENE.PLANET_RADIUS,
+            SCENE.PLANET_WIDTH_SEGMENTS,
+            SCENE.PLANET_HEIGHT_SEGMENTS,
+          ]}
           ref={planetRef}
           scale={PLANETS.VENUS.radius}
           rotation-x={PLANETS.VENUS.tilt}
