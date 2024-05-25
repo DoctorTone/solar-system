@@ -1,5 +1,4 @@
 import Switch from '@mui/material/Switch';
-import { blue } from "@mui/material/colors";
 import { FormGroup, FormControlLabel } from "@mui/material";
 import useStore from "../state/store";
 import { ChangeEvent } from "react";
