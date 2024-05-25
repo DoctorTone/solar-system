@@ -5,6 +5,7 @@ import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
 import SaveIcon from '@mui/icons-material/Save';
 import PrintIcon from '@mui/icons-material/Print';
 import ShareIcon from '@mui/icons-material/Share';
+import LocalAirportIcon from '@mui/icons-material/LocalAirport';
 import Typography from '@mui/material/Typography';
 
 const actions = [
@@ -23,7 +24,8 @@ const FlyUI = () => {
       <SpeedDial
         ariaLabel="SpeedDial basic example"
         direction='down'
-        icon={<SpeedDialIcon />}
+        icon={<LocalAirportIcon />}
+        FabProps={{color: "warning"}}
       >
         {actions.map((action) => (
           <SpeedDialAction
