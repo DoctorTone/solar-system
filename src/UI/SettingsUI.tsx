@@ -35,7 +35,7 @@ const SettingsUI = () => {
               <Switch
                 checked={showPaths}
                 onChange={togglePaths}
-                color='warning'
+                color='primary'
               />
             }
             label="Show paths"
@@ -45,7 +45,7 @@ const SettingsUI = () => {
               <Switch
                 checked={animatePlanets}
                 onChange={toggleAnimation}
-                color='warning'
+                color='primary'
               />
             }
             label="Animate planets"

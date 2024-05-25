@@ -1,18 +1,19 @@
 import SpeedDial from '@mui/material/SpeedDial';
-import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
-import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
-import SaveIcon from '@mui/icons-material/Save';
-import PrintIcon from '@mui/icons-material/Print';
-import ShareIcon from '@mui/icons-material/Share';
-import LocalAirportIcon from '@mui/icons-material/LocalAirport';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import LanguageIcon from '@mui/icons-material/Language';
 import Typography from '@mui/material/Typography';
+import { grey } from '@mui/material/colors';
 
 const actions = [
-  { icon: <FileCopyIcon />, name: 'Copy' },
-  { icon: <SaveIcon />, name: 'Save' },
-  { icon: <PrintIcon />, name: 'Print' },
-  { icon: <ShareIcon />, name: 'Share' },
+  { icon: <LanguageIcon />, planet: 'Mercury' },
+  { icon: <LanguageIcon />, planet: 'Venus' },
+  { icon: <LanguageIcon />, planet: 'Earth' },
+  { icon: <LanguageIcon />, planet: 'Mars' },
+  { icon: <LanguageIcon />, planet: 'Jupiter' },
+  { icon: <LanguageIcon />, planet: 'Saturn' },
+  { icon: <LanguageIcon />, planet: 'Uranus' },
+  { icon: <LanguageIcon />, planet: 'Neptune' },
 ];
 
 const FlyUI = () => {
@@ -24,14 +25,16 @@ const FlyUI = () => {
       <SpeedDial
         ariaLabel="SpeedDial basic example"
         direction='down'
-        icon={<LocalAirportIcon />}
-        FabProps={{color: "warning"}}
+        icon={<RocketLaunchIcon />}
+        FabProps={{color: "primary"}}
       >
         {actions.map((action) => (
           <SpeedDialAction
-            key={action.name}
+            key={action.planet}
+            tooltipTitle={action.planet}
             icon={action.icon}
-            tooltipTitle={action.name}
+            tooltipPlacement="right"
+            sx={{color: "orange", backgroundColor: grey[600]}}
           />
         ))}
       </SpeedDial>
