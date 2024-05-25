@@ -1,4 +1,4 @@
-import Checkbox from "@mui/material/Checkbox";
+import Switch from '@mui/material/Switch';
 import { blue } from "@mui/material/colors";
 import { FormGroup, FormControlLabel } from "@mui/material";
 import useStore from "../state/store";
@@ -32,30 +32,20 @@ const SettingsUI = () => {
         <FormGroup>
           <FormControlLabel
             control={
-              <Checkbox
+              <Switch
                 checked={showPaths}
                 onChange={togglePaths}
-                sx={{
-                  color: blue[800],
-                  "&.Mui-checked": {
-                    color: blue[600],
-                  },
-                }}
+                color='warning'
               />
             }
             label="Show paths"
           />
           <FormControlLabel
             control={
-              <Checkbox
+              <Switch
                 checked={animatePlanets}
                 onChange={toggleAnimation}
-                sx={{
-                  color: blue[800],
-                  "&.Mui-checked": {
-                    color: blue[600],
-                  },
-                }}
+                color='warning'
               />
             }
             label="Animate planets"
