@@ -13,14 +13,14 @@ const actions = [
     planet: "Start",
     image: "",
   },
-  { icon: <LanguageIcon />, planet: "Mercury", image: "./images/mercury.webp" },
-  { icon: <LanguageIcon />, planet: "Venus", image: "./images/venus.webp" },
+  { icon: <LanguageIcon />, planet: "Mercury", image: "./images/mercury.jpg" },
+  { icon: <LanguageIcon />, planet: "Venus", image: "./images/venus.jpg" },
   { icon: <LanguageIcon />, planet: "Earth", image: "./images/earth.jpg" },
   { icon: <LanguageIcon />, planet: "Mars", image: "./images/mars.jpg" },
-  { icon: <LanguageIcon />, planet: "Jupiter", image: "./images/jupiter.webp" },
-  { icon: <LanguageIcon />, planet: "Saturn", image: "./images/saturn.webp" },
-  { icon: <LanguageIcon />, planet: "Uranus", image: "./images/uranus.png" },
-  { icon: <LanguageIcon />, planet: "Neptune", image: "./images/neptune.png" },
+  { icon: <LanguageIcon />, planet: "Jupiter", image: "./images/jupiter.jpg" },
+  { icon: <LanguageIcon />, planet: "Saturn", image: "./images/saturn.jpg" },
+  { icon: <LanguageIcon />, planet: "Uranus", image: "./images/uranus.jpg" },
+  { icon: <LanguageIcon />, planet: "Neptune", image: "./images/neptune.jpg" },
 ];
 
 const FlyUI = () => {
