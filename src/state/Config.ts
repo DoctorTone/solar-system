@@ -9,7 +9,7 @@ const SCENE = {
   lightPosition: new Vector3(0, 0, 0),
   ambientIntensity: 1,
   FONT_SIZE: 15,
-  FONT_OUTLINE_WIDTH: 1.5,
+  FONT_OUTLINE_WIDTH: 0.75,
   RING_SEGMENTS: 128,
   ROTATION_AXIS: new Vector3(0, 1, 0),
   ANIMATION_SPEED: 0.25,
