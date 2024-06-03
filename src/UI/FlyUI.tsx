@@ -8,11 +8,6 @@ import { grey } from "@mui/material/colors";
 import useStore from "../state/store";
 
 const actions = [
-  {
-    icon: <HomeOutlinedIcon />,
-    planet: "Start",
-    image: "",
-  },
   { icon: <LanguageIcon />, planet: "Mercury", image: "./images/mercury.jpg" },
   { icon: <LanguageIcon />, planet: "Venus", image: "./images/venus.jpg" },
   { icon: <LanguageIcon />, planet: "Earth", image: "./images/earth.jpg" },
@@ -38,11 +33,18 @@ const FlyUI = () => {
         Fly To :
       </Typography>
       <SpeedDial
-        ariaLabel="SpeedDial basic example"
+        ariaLabel="Planets drop down"
         direction="down"
         icon={<RocketLaunchIcon />}
         FabProps={{ color: "primary" }}
       >
+        <SpeedDialAction
+          onClick={(event) => selectPlanet("start")}
+          tooltipTitle={"Start"}
+          tooltipPlacement="right"
+          icon={<HomeOutlinedIcon />}
+          sx={{ color: "orange", backgroundColor: "grey" }}
+        />
         {actions.map((action) => (
           <SpeedDialAction
             onClick={(event) => {
