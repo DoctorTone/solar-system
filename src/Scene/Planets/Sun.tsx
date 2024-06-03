@@ -1,4 +1,3 @@
-import React from "react";
 import { Sphere, useTexture } from "@react-three/drei";
 import { SUN } from "../../state/Config";
 

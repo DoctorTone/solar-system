@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { DoubleSide, Vector3, Group } from "three";
+import { Vector3, Group } from "three";
 import { Sphere, useTexture, Text, Billboard } from "@react-three/drei";
 import { Rings } from "./Rings";
 import { useFrame } from "@react-three/fiber";

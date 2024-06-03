@@ -1,4 +1,4 @@
-import Switch from '@mui/material/Switch';
+import Switch from "@mui/material/Switch";
 import { FormGroup, FormControlLabel } from "@mui/material";
 import useStore from "../state/store";
 import { ChangeEvent } from "react";
@@ -11,15 +11,12 @@ const SettingsUI = () => {
     (state) => state.togglePlanetAnimation
   );
 
-  const togglePaths = (
-    event: ChangeEvent<HTMLInputElement>,
-    checked: boolean
-  ) => {
+  const togglePaths = (_: ChangeEvent<HTMLInputElement>, checked: boolean) => {
     toggleShowPaths(checked);
   };
 
   const toggleAnimation = (
-    event: ChangeEvent<HTMLInputElement>,
+    _: ChangeEvent<HTMLInputElement>,
     checked: boolean
   ) => {
     togglePlanetAnimation(checked);
@@ -34,7 +31,7 @@ const SettingsUI = () => {
               <Switch
                 checked={showPaths}
                 onChange={togglePaths}
-                color='primary'
+                color="primary"
               />
             }
             label="Show paths"
@@ -44,7 +41,7 @@ const SettingsUI = () => {
               <Switch
                 checked={animatePlanets}
                 onChange={toggleAnimation}
-                color='primary'
+                color="primary"
               />
             }
             label="Animate planets"

@@ -5,6 +5,7 @@ import LanguageIcon from "@mui/icons-material/Language";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import Typography from "@mui/material/Typography";
 import useStore from "../state/store";
+import { isSmallAndLandscapeDevice } from "../Utils/screenUtils";
 
 const actions = [
   { icon: <LanguageIcon />, planet: "Mercury", image: "./images/mercury.jpg" },
@@ -33,12 +34,12 @@ const FlyUI = () => {
       </Typography>
       <SpeedDial
         ariaLabel="Planets drop down"
-        direction="down"
+        direction={isSmallAndLandscapeDevice() ? "right" : "down"}
         icon={<RocketLaunchIcon />}
         FabProps={{ color: "primary" }}
       >
         <SpeedDialAction
-          onClick={(event) => selectPlanet("start")}
+          onClick={() => selectPlanet("start")}
           tooltipTitle={"Start"}
           tooltipPlacement="right"
           icon={<HomeOutlinedIcon />}
@@ -46,7 +47,7 @@ const FlyUI = () => {
         />
         {actions.map((action) => (
           <SpeedDialAction
-            onClick={(event) => {
+            onClick={() => {
               selectPlanet(action.planet);
             }}
             key={action.planet}
