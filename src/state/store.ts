@@ -1,4 +1,4 @@
-import {create} from "zustand";
+import { create } from "zustand";
 import { MODALS } from "./Config";
 
 interface SolarState {
@@ -10,6 +10,8 @@ interface SolarState {
   setCurrentView: (view: string) => void;
   visibleModal: number;
   setVisibleModal: (modal: number) => void;
+  planetDialogOpen: boolean;
+  setPlanetDialogOpen: (status: boolean) => void;
 }
 
 const useStore = create<SolarState>((set) => ({
@@ -21,6 +23,8 @@ const useStore = create<SolarState>((set) => ({
   setCurrentView: (view: string) => set({ currentView: view }),
   visibleModal: MODALS.NONE,
   setVisibleModal: (modal: number) => set({ visibleModal: modal }),
+  planetDialogOpen: false,
+  setPlanetDialogOpen: (status: boolean) => set({ planetDialogOpen: status }),
 }));
 
 export default useStore;

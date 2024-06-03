@@ -4,7 +4,6 @@ import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import LanguageIcon from "@mui/icons-material/Language";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import Typography from "@mui/material/Typography";
-import { grey } from "@mui/material/colors";
 import useStore from "../state/store";
 
 const actions = [

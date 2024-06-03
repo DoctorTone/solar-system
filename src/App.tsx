@@ -9,6 +9,7 @@ function App() {
   return (
     <>
       <Canvas
+        id="myCanvas"
         camera={{
           fov: SCENE.FOV,
           near: SCENE.NEAR,

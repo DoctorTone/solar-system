@@ -1,15 +1,17 @@
 import { Vector3 } from "three";
-import Mercury from "../Scene/Planets/Mercury";
+import { isSmallDevice } from "../Utils/screenUtils";
 
 const SCENE = {
   FOV: 45,
   NEAR: 1,
   FAR: 10000,
-  cameraPosition: new Vector3(0, 250, 1200),
+  cameraPosition: isSmallDevice()
+    ? new Vector3(0, 250, 1400)
+    : new Vector3(0, 250, 1200),
   lightPosition: new Vector3(0, 0, 0),
   ambientIntensity: 1,
-  FONT_SIZE: 15,
-  FONT_OUTLINE_WIDTH: 0.75,
+  FONT_SIZE: isSmallDevice() ? 5 : 15,
+  FONT_OUTLINE_WIDTH: 0.5,
   RING_SEGMENTS: 128,
   ROTATION_AXIS: new Vector3(0, 1, 0),
   ANIMATION_SPEED: 0.25,
@@ -39,7 +41,7 @@ const PLANETS = {
     tilt: 0,
     rotationSpeed: (2 * Math.PI) / 8720,
     animationSpeed: 0.25,
-    viewPosition: new Vector3(-150, 15, 265),
+    viewPosition: new Vector3(-153, 15, 265),
   },
   VENUS: {
     distance: START_DISTANCE + PLANET_GAP,
@@ -48,7 +50,7 @@ const PLANETS = {
     tilt: 3.09,
     rotationSpeed: (2 * Math.PI) / 14484,
     animationSpeed: 0.25,
-    viewPosition: new Vector3(275, 15, 235),
+    viewPosition: new Vector3(275, 15, 232),
   },
   EARTH: {
     distance: START_DISTANCE + PLANET_GAP * 2,
