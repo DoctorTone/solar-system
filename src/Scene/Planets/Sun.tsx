@@ -1,21 +1,29 @@
-import { Texture } from "three";
+import { useRef } from "react";
+import { ShaderMaterial, Texture } from "three";
 import { useTexture, shaderMaterial } from "@react-three/drei";
-import { extend } from "@react-three/fiber";
+import { extend, useFrame } from "@react-three/fiber";
 import { SUN } from "../../state/Config";
 import { SCENE } from "../../state/Config";
 import sunVertexShader from "../../shaders/sunVertexShader.glsl";
 import sunFragmentShader from "../../shaders/sunFragmentShader.glsl";
 
 const Sun = () => {
-  const sunSurface = useTexture("./textures/sun.jpg");
+  const sunSurface1 = useTexture("./textures/sun.jpg");
+  const sunSurface2 = useTexture("./textures/sun2.jpg");
+  const noiseSurface = useTexture("./textures/noise.png");
   const sunBloom = useTexture("./textures/moonBloom.png");
+
   const SunMaterial = shaderMaterial(
-    { map: new Texture() },
+    { time: 0, noise: new Texture(), sun1: new Texture(), sun2: new Texture() },
     sunVertexShader,
     sunFragmentShader
   );
+  const materialRef = useRef<ShaderMaterial>();
   extend({ SunMaterial });
 
+  useFrame((_, delta) => {
+    materialRef.current!.time += delta;
+  });
   return (
     <>
       <group scale={SUN.radius}>
@@ -27,7 +35,12 @@ const Sun = () => {
               SCENE.PLANET_HEIGHT_SEGMENTS,
             ]}
           />
-          <sunMaterial map={sunSurface} />
+          <sunMaterial
+            noise={noiseSurface}
+            sun1={sunSurface1}
+            sun2={sunSurface2}
+            ref={materialRef}
+          />
         </mesh>
       </group>
       <group scale={SUN.radius * 3}>
