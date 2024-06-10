@@ -1,4 +1,5 @@
-import { Sphere, useTexture, shaderMaterial } from "@react-three/drei";
+import { Texture } from "three";
+import { useTexture, shaderMaterial } from "@react-three/drei";
 import { extend } from "@react-three/fiber";
 import { SUN } from "../../state/Config";
 import { SCENE } from "../../state/Config";
@@ -8,7 +9,11 @@ import sunFragmentShader from "../../shaders/sunFragmentShader.glsl";
 const Sun = () => {
   const sunSurface = useTexture("./textures/sun.jpg");
   const sunBloom = useTexture("./textures/moonBloom.png");
-  const SunMaterial = shaderMaterial({}, sunVertexShader, sunFragmentShader);
+  const SunMaterial = shaderMaterial(
+    { map: new Texture() },
+    sunVertexShader,
+    sunFragmentShader
+  );
   extend({ SunMaterial });
 
   return (
@@ -22,7 +27,7 @@ const Sun = () => {
               SCENE.PLANET_HEIGHT_SEGMENTS,
             ]}
           />
-          <sunMaterial />
+          <sunMaterial map={sunSurface} />
         </mesh>
       </group>
       <group scale={SUN.radius * 3}>
