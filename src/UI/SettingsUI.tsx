@@ -1,5 +1,7 @@
 import Switch from "@mui/material/Switch";
-import { FormGroup, FormControlLabel } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import FlareIcon from "@mui/icons-material/Flare";
+import { FormGroup, FormControlLabel, Typography } from "@mui/material";
 import useStore from "../state/store";
 import { ChangeEvent } from "react";
 
@@ -47,6 +49,10 @@ const SettingsUI = () => {
             label="Animate planets"
           />
         </FormGroup>
+        <IconButton>
+          <FlareIcon color="error" sx={{ mr: 1 }} />
+          <Typography color={"white"}>Explode</Typography>
+        </IconButton>
       </div>
     </>
   );
