@@ -15,6 +15,8 @@ const Sun = () => {
   const noiseSurface = useTexture("./textures/noise.png");
   const sunBloom = useTexture("./textures/moonBloom.png");
   const explode = useStore((state) => state.explode);
+  const setExplode = useStore((state) => state.setExplode);
+  let elapsedTime = 0;
 
   const SunMaterial = shaderMaterial(
     { time: 0, noise: new Texture(), sun1: new Texture(), sun2: new Texture() },
@@ -22,19 +24,27 @@ const Sun = () => {
     sunFragmentShader
   );
   const materialRef = useRef<ShaderMaterial>();
+  const groupRef = useRef<Group>(null);
   extend({ SunMaterial });
   const ringRef = useRef<Group>(null);
 
   useFrame((_, delta) => {
     materialRef.current!.time += delta;
     if (explode) {
+      elapsedTime += delta;
       ringRef.current!.scale.x += delta * RING_SCALE;
       ringRef.current!.scale.y += delta * RING_SCALE;
+      if (elapsedTime > 1) {
+        groupRef.current!.scale.addScalar(delta * RING_SCALE * 20);
+      }
+      if (elapsedTime > 8) {
+        setExplode(false);
+      }
     }
   });
   return (
     <>
-      <group scale={SUN.radius}>
+      <group ref={groupRef} scale={SUN.radius}>
         <mesh>
           <sphereGeometry
             args={[
