@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { ShaderMaterial, Texture } from "three";
+import { ShaderMaterial, Texture, Group } from "three";
 import { useTexture, shaderMaterial } from "@react-three/drei";
 import { extend, useFrame } from "@react-three/fiber";
 import { SUN } from "../../state/Config";
@@ -7,6 +7,7 @@ import { SCENE } from "../../state/Config";
 import sunVertexShader from "../../shaders/sunVertexShader.glsl";
 import sunFragmentShader from "../../shaders/sunFragmentShader.glsl";
 
+const RING_SCALE = 2;
 const Sun = () => {
   const sunSurface1 = useTexture("./textures/sun.jpg");
   const sunSurface2 = useTexture("./textures/sun2.jpg");
@@ -20,9 +21,12 @@ const Sun = () => {
   );
   const materialRef = useRef<ShaderMaterial>();
   extend({ SunMaterial });
+  const ringRef = useRef<Group>(null);
 
   useFrame((_, delta) => {
     materialRef.current!.time += delta;
+    ringRef.current!.scale.x += delta * RING_SCALE;
+    ringRef.current!.scale.y += delta * RING_SCALE;
   });
   return (
     <>
@@ -42,6 +46,12 @@ const Sun = () => {
             ref={materialRef}
           />
         </mesh>
+        <group ref={ringRef} rotation={[-Math.PI / 2, 0, 0]}>
+          <mesh>
+            <ringGeometry args={[1.1, 1.11]} />
+            <meshStandardMaterial color={"blue"} />
+          </mesh>
+        </group>
       </group>
       <group scale={SUN.radius * 3}>
         <sprite>
