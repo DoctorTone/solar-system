@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { ShaderMaterial, Texture, Group } from "three";
+import { ShaderMaterial, Texture, Group, Vector3 } from "three";
 import { useTexture, shaderMaterial } from "@react-three/drei";
 import { extend, useFrame } from "@react-three/fiber";
 import { SUN } from "../../state/Config";
@@ -17,6 +17,8 @@ const Sun = () => {
   const explode = useStore((state) => state.explode);
   const setExplode = useStore((state) => state.setExplode);
   const setVisibleModal = useStore((state) => state.setVisibleModal);
+  const reset = useStore((state) => state.reset);
+  const resetSimulation = useStore((state) => state.resetSimulation);
   let elapsedTime = 0;
 
   const SunMaterial = shaderMaterial(
@@ -42,6 +44,16 @@ const Sun = () => {
         setExplode(false);
         setVisibleModal(MODALS.SUN);
       }
+    }
+    if (reset) {
+      ringRef.current!.scale.x = 1;
+      ringRef.current!.scale.y = 1;
+      groupRef.current!.scale.copy(
+        new Vector3(SUN.radius, SUN.radius, SUN.radius)
+      );
+      elapsedTime = 0;
+      resetSimulation(false);
+      setVisibleModal(MODALS.NONE);
     }
   });
   return (

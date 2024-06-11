@@ -5,6 +5,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
+import useStore from "../state/store";
 import { grey } from "@mui/material/colors";
 
 type ModalProps = {
@@ -13,9 +14,11 @@ type ModalProps = {
 
 const SunModal: React.FC<ModalProps> = ({ showModal }) => {
   const [show, setShow] = useState(showModal);
+  const resetSimulation = useStore((state) => state.resetSimulation);
 
   const handleClose = () => {
     setShow(false);
+    resetSimulation(true);
   };
 
   return (

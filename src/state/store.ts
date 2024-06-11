@@ -14,6 +14,8 @@ interface SolarState {
   setPlanetDialogOpen: (status: boolean) => void;
   explode: boolean;
   setExplode: (status: boolean) => void;
+  reset: boolean;
+  resetSimulation: (status: boolean) => void;
 }
 
 const useStore = create<SolarState>((set) => ({
@@ -29,6 +31,8 @@ const useStore = create<SolarState>((set) => ({
   setPlanetDialogOpen: (status: boolean) => set({ planetDialogOpen: status }),
   explode: false,
   setExplode: (status: boolean) => set({ explode: status }),
+  reset: false,
+  resetSimulation: (status: boolean) => set({ reset: status }),
 }));
 
 export default useStore;
