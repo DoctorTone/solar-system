@@ -6,13 +6,15 @@ import { SUN } from "../../state/Config";
 import { SCENE } from "../../state/Config";
 import sunVertexShader from "../../shaders/sunVertexShader.glsl";
 import sunFragmentShader from "../../shaders/sunFragmentShader.glsl";
+import useStore from "../../state/store";
 
-const RING_SCALE = 2;
+const RING_SCALE = 4;
 const Sun = () => {
   const sunSurface1 = useTexture("./textures/sun.jpg");
   const sunSurface2 = useTexture("./textures/sun2.jpg");
   const noiseSurface = useTexture("./textures/noise.png");
   const sunBloom = useTexture("./textures/moonBloom.png");
+  const explode = useStore((state) => state.explode);
 
   const SunMaterial = shaderMaterial(
     { time: 0, noise: new Texture(), sun1: new Texture(), sun2: new Texture() },
@@ -25,8 +27,10 @@ const Sun = () => {
 
   useFrame((_, delta) => {
     materialRef.current!.time += delta;
-    ringRef.current!.scale.x += delta * RING_SCALE;
-    ringRef.current!.scale.y += delta * RING_SCALE;
+    if (explode) {
+      ringRef.current!.scale.x += delta * RING_SCALE;
+      ringRef.current!.scale.y += delta * RING_SCALE;
+    }
   });
   return (
     <>
@@ -48,7 +52,7 @@ const Sun = () => {
         </mesh>
         <group ref={ringRef} rotation={[-Math.PI / 2, 0, 0]}>
           <mesh>
-            <ringGeometry args={[1.1, 1.11]} />
+            <ringGeometry args={[0.9, 0.91]} />
             <meshStandardMaterial color={"blue"} />
           </mesh>
         </group>
