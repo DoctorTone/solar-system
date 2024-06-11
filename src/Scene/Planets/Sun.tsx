@@ -3,7 +3,7 @@ import { ShaderMaterial, Texture, Group } from "three";
 import { useTexture, shaderMaterial } from "@react-three/drei";
 import { extend, useFrame } from "@react-three/fiber";
 import { SUN } from "../../state/Config";
-import { SCENE } from "../../state/Config";
+import { SCENE, MODALS } from "../../state/Config";
 import sunVertexShader from "../../shaders/sunVertexShader.glsl";
 import sunFragmentShader from "../../shaders/sunFragmentShader.glsl";
 import useStore from "../../state/store";
@@ -16,6 +16,7 @@ const Sun = () => {
   const sunBloom = useTexture("./textures/moonBloom.png");
   const explode = useStore((state) => state.explode);
   const setExplode = useStore((state) => state.setExplode);
+  const setVisibleModal = useStore((state) => state.setVisibleModal);
   let elapsedTime = 0;
 
   const SunMaterial = shaderMaterial(
@@ -39,6 +40,7 @@ const Sun = () => {
       }
       if (elapsedTime > 8) {
         setExplode(false);
+        setVisibleModal(MODALS.SUN);
       }
     }
   });

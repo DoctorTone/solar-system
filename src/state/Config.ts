@@ -118,6 +118,7 @@ const MODALS = {
   SATURN: 6,
   URANUS: 7,
   NEPTUNE: 8,
+  SUN: 9,
 };
 
 export { SCENE, SUN, PLANETS, MODALS };

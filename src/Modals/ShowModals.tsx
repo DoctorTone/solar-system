@@ -7,6 +7,7 @@ import MarsModal from "./MarsModal.js";
 import SaturnModal from "./SaturnModal.js";
 import UranusModal from "./UranusModal.js";
 import NeptuneModal from "./NeptuneModal.js";
+import SunModal from "./SunModal.js";
 import useStore from "../state/store.js";
 
 const ShowModals = () => {
@@ -29,6 +30,8 @@ const ShowModals = () => {
       return <UranusModal showModal={true} />;
     case MODALS.NEPTUNE:
       return <NeptuneModal showModal={true} />;
+    case MODALS.SUN:
+      return <SunModal showModal={true} />;
 
     default:
       break;
