@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import Sun from "./Planets/Sun";
 import Mercury from "./Planets/Mercury";
 import Venus from "./Planets/Venus";
@@ -11,6 +11,7 @@ import Neptune from "./Planets/Neptune";
 import { Stars } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import useStore from "../state/store";
+import { Loading } from "../UI/Loading";
 import { SCENE, PLANETS, MODALS } from "../state/Config";
 
 const System = () => {
@@ -82,16 +83,18 @@ const System = () => {
 
   return (
     <>
-      <Stars radius={SCENE.STAR_RADIUS} />
-      <Sun />
-      <Mercury />
-      <Venus />
-      <Earth />
-      <Mars />
-      <Jupiter />
-      <Saturn />
-      <Uranus />
-      <Neptune />
+      <Suspense fallback={<Loading />}>
+        <Stars radius={SCENE.STAR_RADIUS} />
+        <Sun />
+        <Mercury />
+        <Venus />
+        <Earth />
+        <Mars />
+        <Jupiter />
+        <Saturn />
+        <Uranus />
+        <Neptune />
+      </Suspense>
     </>
   );
 };
