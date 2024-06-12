@@ -22,7 +22,7 @@ const Sun = () => {
   let elapsedTime = 0;
 
   const SunMaterial = shaderMaterial(
-    { time: 0, noise: new Texture(), sun1: new Texture(), sun2: new Texture() },
+    { time: 0, sun1: new Texture() },
     sunVertexShader,
     sunFragmentShader
   );
@@ -67,12 +67,7 @@ const Sun = () => {
               SCENE.PLANET_HEIGHT_SEGMENTS,
             ]}
           />
-          <sunMaterial
-            noise={noiseSurface}
-            sun1={sunSurface1}
-            sun2={sunSurface2}
-            ref={materialRef}
-          />
+          <sunMaterial sun1={sunSurface1} ref={materialRef} />
         </mesh>
         <group ref={ringRef} rotation={[-Math.PI / 2, 0, 0]}>
           <mesh>
