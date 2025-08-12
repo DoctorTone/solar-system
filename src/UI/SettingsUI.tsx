@@ -3,7 +3,7 @@ import IconButton from "@mui/material/IconButton";
 import FlareIcon from "@mui/icons-material/Flare";
 import { FormGroup, FormControlLabel, Typography } from "@mui/material";
 import useStore from "../state/store";
-import { ChangeEvent, MouseEventHandler } from "react";
+import { ChangeEvent } from "react";
 
 const SettingsUI = () => {
   const showPaths = useStore((state) => state.showPaths);
@@ -23,10 +23,6 @@ const SettingsUI = () => {
     checked: boolean
   ) => {
     togglePlanetAnimation(checked);
-  };
-
-  const explode = (_: MouseEventHandler<HTMLAnchorElement>) => {
-    setExplode(true);
   };
 
   return (
@@ -54,7 +50,7 @@ const SettingsUI = () => {
             label="Animate planets"
           />
         </FormGroup>
-        <IconButton onClick={explode}>
+        <IconButton onClick={(_) => setExplode(true)}>
           <FlareIcon color="error" sx={{ mr: 1 }} />
           <Typography color={"white"}>Explode</Typography>
         </IconButton>

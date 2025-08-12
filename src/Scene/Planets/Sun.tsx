@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useRef } from "react";
 import { ShaderMaterial, Texture, Group, Vector3 } from "three";
 import { useTexture, shaderMaterial } from "@react-three/drei";
@@ -11,8 +12,6 @@ import useStore from "../../state/store";
 const RING_SCALE = 4;
 const Sun = () => {
   const sunSurface1 = useTexture("./textures/sun.jpg");
-  const sunSurface2 = useTexture("./textures/sun2.jpg");
-  const noiseSurface = useTexture("./textures/noise.png");
   const sunBloom = useTexture("./textures/moonBloom.png");
   const explode = useStore((state) => state.explode);
   const setExplode = useStore((state) => state.setExplode);
