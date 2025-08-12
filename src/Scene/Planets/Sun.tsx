@@ -1,8 +1,15 @@
-// @ts-nocheck
 import { useRef } from "react";
 import { ShaderMaterial, Texture, Group, Vector3 } from "three";
 import { useTexture, shaderMaterial } from "@react-three/drei";
 import { extend, useFrame } from "@react-three/fiber";
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      sunMaterial: any;
+    }
+  }
+}
 import { SUN } from "../../state/Config";
 import { SCENE, MODALS } from "../../state/Config";
 import sunVertexShader from "../../shaders/sunVertexShader.glsl";
@@ -25,7 +32,7 @@ const Sun = () => {
     sunVertexShader,
     sunFragmentShader
   );
-  const materialRef = useRef<ShaderMaterial>();
+  const materialRef = useRef<ShaderMaterial & { time: number }>();
   const groupRef = useRef<Group>(null);
   extend({ SunMaterial });
   const ringRef = useRef<Group>(null);
