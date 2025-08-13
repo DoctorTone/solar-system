@@ -6,10 +6,28 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import Typography from "@mui/material/Typography";
 import { grey } from "@mui/material/colors";
+import Slide from "@mui/material/Slide";
+import { TransitionProps } from "@mui/material/transitions";
 
 type ModalProps = {
   showModal: boolean;
 };
+
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>;
+  },
+  ref: React.Ref<unknown>
+) {
+  return (
+    <Slide
+      direction="down"
+      ref={ref}
+      {...props}
+      timeout={{ enter: 1500, exit: 100 }}
+    />
+  );
+});
 
 const JupiterModal: React.FC<ModalProps> = ({ showModal }) => {
   const [show, setShow] = useState(showModal);
@@ -24,6 +42,9 @@ const JupiterModal: React.FC<ModalProps> = ({ showModal }) => {
       onClose={handleClose}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
+      slots={{
+        transition: Transition,
+      }}
       slotProps={{
         paper: {
           sx: {
