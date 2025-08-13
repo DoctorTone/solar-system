@@ -24,14 +24,24 @@ const MercuryModal: React.FC<ModalProps> = ({ showModal }) => {
       onClose={handleClose}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
+      slotProps={{
+        paper: {
+          sx: {
+            opacity: 0.8,
+            backgroundColor: "black",
+            color: "white",
+            borderRadius: "30px",
+          },
+        },
+      }}
     >
       <DialogTitle
-        sx={{ fontSize: 30, color: "orange", backgroundColor: grey[900] }}
+        sx={{ fontSize: 30, color: "orange" }}
         id="alert-dialog-title"
       >
         {"Mercury"}
       </DialogTitle>
-      <DialogContent sx={{ color: grey[300], backgroundColor: grey[900] }}>
+      <DialogContent sx={{ color: grey[300] }}>
         <Typography sx={{ mb: 2 }}>
           The first planet from the Sun and the smallest in the Solar System. In
           English, it is named after the ancient Roman god Mercurius, god of
@@ -44,7 +54,7 @@ const MercuryModal: React.FC<ModalProps> = ({ showModal }) => {
         <Typography gutterBottom>Length of day: 59 days</Typography>
         <Typography gutterBottom>Time to orbit: 88 days</Typography>
       </DialogContent>
-      <DialogActions sx={{ color: "white", backgroundColor: grey[900] }}>
+      <DialogActions sx={{ color: "white" }}>
         <Button sx={{ color: "white" }} onClick={handleClose} autoFocus>
           OK
         </Button>

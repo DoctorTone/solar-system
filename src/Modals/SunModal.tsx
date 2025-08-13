@@ -27,21 +27,31 @@ const SunModal: React.FC<ModalProps> = ({ showModal }) => {
       onClose={handleClose}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
+      slotProps={{
+        paper: {
+          sx: {
+            opacity: 0.8,
+            backgroundColor: "black",
+            color: "white",
+            borderRadius: "30px",
+          },
+        },
+      }}
     >
       <DialogTitle
-        sx={{ fontSize: 30, color: "orange", backgroundColor: grey[900] }}
+        sx={{ fontSize: 30, color: "orange" }}
         id="alert-dialog-title"
       >
         {"Sun"}
       </DialogTitle>
-      <DialogContent sx={{ color: grey[300], backgroundColor: grey[900] }}>
+      <DialogContent sx={{ color: grey[300] }}>
         <Typography sx={{ mb: 2 }}>
           Don't worry. Astronomers estimate that the sun has about 7 billion to
           8 billion years left before it sputters out and dies. We have a bit of
           time to prepare!
         </Typography>
       </DialogContent>
-      <DialogActions sx={{ backgroundColor: grey[900] }}>
+      <DialogActions>
         <Button sx={{ color: "white" }} onClick={handleClose} autoFocus>
           OK
         </Button>

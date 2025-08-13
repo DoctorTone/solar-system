@@ -24,14 +24,24 @@ const EarthModal: React.FC<ModalProps> = ({ showModal }) => {
       onClose={handleClose}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
+      slotProps={{
+        paper: {
+          sx: {
+            opacity: 0.8,
+            backgroundColor: "black",
+            color: "white",
+            borderRadius: "30px",
+          },
+        },
+      }}
     >
       <DialogTitle
-        sx={{ fontSize: 30, color: "orange", backgroundColor: grey[900] }}
+        sx={{ fontSize: 30, color: "orange" }}
         id="alert-dialog-title"
       >
         {"Earth"}
       </DialogTitle>
-      <DialogContent sx={{ color: grey[300], backgroundColor: grey[900] }}>
+      <DialogContent sx={{ color: grey[300] }}>
         <Typography sx={{ mb: 2 }}>
           The third planet from the Sun and the only astronomical object known
           to harbor life. This is enabled by Earth being a water world, the only
@@ -46,7 +56,7 @@ const EarthModal: React.FC<ModalProps> = ({ showModal }) => {
         <Typography gutterBottom>Length of day: 23 hours 56 minutes</Typography>
         <Typography gutterBottom>Time to orbit: 365 days</Typography>
       </DialogContent>
-      <DialogActions sx={{ backgroundColor: grey[900] }}>
+      <DialogActions>
         <Button sx={{ color: "white" }} onClick={handleClose} autoFocus>
           OK
         </Button>

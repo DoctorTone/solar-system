@@ -24,14 +24,24 @@ const NeptuneModal: React.FC<ModalProps> = ({ showModal }) => {
       onClose={handleClose}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
+      slotProps={{
+        paper: {
+          sx: {
+            opacity: 0.8,
+            backgroundColor: "black",
+            color: "white",
+            borderRadius: "30px",
+          },
+        },
+      }}
     >
       <DialogTitle
-        sx={{ fontSize: 30, color: "orange", backgroundColor: grey[900] }}
+        sx={{ fontSize: 30, color: "orange" }}
         id="alert-dialog-title"
       >
         {"Neptune"}
       </DialogTitle>
-      <DialogContent sx={{ color: grey[300], backgroundColor: grey[900] }}>
+      <DialogContent sx={{ color: grey[300] }}>
         <Typography sx={{ mb: 2 }}>
           The eighth and farthest known planet from the Sun. It is the
           fourth-largest planet in the Solar System by diameter, the
@@ -46,7 +56,7 @@ const NeptuneModal: React.FC<ModalProps> = ({ showModal }) => {
         <Typography gutterBottom>Length of day: 16 hours 6 minutes</Typography>
         <Typography gutterBottom>Time to orbit: 164.8 years</Typography>
       </DialogContent>
-      <DialogActions sx={{ color: "white", backgroundColor: grey[900] }}>
+      <DialogActions sx={{ color: "white" }}>
         <Button sx={{ color: "white" }} onClick={handleClose} autoFocus>
           OK
         </Button>

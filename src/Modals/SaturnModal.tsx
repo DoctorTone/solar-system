@@ -24,14 +24,24 @@ const SaturnModal: React.FC<ModalProps> = ({ showModal }) => {
       onClose={handleClose}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
+      slotProps={{
+        paper: {
+          sx: {
+            opacity: 0.8,
+            backgroundColor: "black",
+            color: "white",
+            borderRadius: "30px",
+          },
+        },
+      }}
     >
       <DialogTitle
-        sx={{ fontSize: 30, color: "orange", backgroundColor: grey[900] }}
+        sx={{ fontSize: 30, color: "orange" }}
         id="alert-dialog-title"
       >
         {"Saturn"}
       </DialogTitle>
-      <DialogContent sx={{ color: grey[300], backgroundColor: grey[900] }}>
+      <DialogContent sx={{ color: grey[300] }}>
         <Typography sx={{ mb: 2 }}>
           The sixth planet from the Sun and the second-largest in the Solar
           System, after Jupiter. It is a gas giant with an average radius of
@@ -45,7 +55,7 @@ const SaturnModal: React.FC<ModalProps> = ({ showModal }) => {
         <Typography gutterBottom>Length of day: 10 hours 34 minutes</Typography>
         <Typography gutterBottom>Time to orbit: 29.45 years</Typography>
       </DialogContent>
-      <DialogActions sx={{ color: "white", backgroundColor: grey[900] }}>
+      <DialogActions sx={{ color: "white" }}>
         <Button sx={{ color: "white" }} onClick={handleClose} autoFocus>
           OK
         </Button>
